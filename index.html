@@ -6,6 +6,10 @@
     <title>Spaciocero · Yoga y Bienestar en Villaviciosa</title>
     <meta name="description" content="Centro de yoga y pilates en Villaviciosa. Clases para todos los niveles. Relajación, flexibilidad y bienestar. ¡Ven a conocernos!" />
     <link rel="icon" type="image/png" href="./spaciocero_logo2_retocado-circle.png" />
+    <!-- ====== NUEVO: Canonical ====== -->
+    <link rel="canonical" href="https://spaciocero.pages.dev/" />
+    <!-- ====== NUEVO: Apple Touch Icon ====== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <!-- Google Fonts (Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -46,7 +50,7 @@
         <section id="inicio" class="hero">
             <div class="container hero-inner">
                 <div class="hero-content">
-                    <h1>Yoga para encontrar tu <strong>equilibrio</strong></h1>
+                    <h1>Centro de yoga y <strong>bienestar en Villaviciosa</strong></h1>
                     <p class="hero-descripcion">
                         A dos pasos de la plaza del Ayuntamiento, en la calle Alfonso X el Sabio, está Spaciocero.
                         Un centro de yoga donde vecinos y visitantes encuentran tranquilidad en medio del bullicio del centro.
@@ -57,13 +61,12 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <!-- Imagen decorativa (opcional, puedes sustituirla) -->
                     <div class="hero-illustration"></div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== SECCIÓN: SOBRE NOSOTROS ===== -->
+        <!-- ===== SECCIÓN: SOBRE NOSOTROS (ampliada) ===== -->
         <section id="sobre" class="section">
             <div class="container">
                 <h2 class="section-title">Sobre <strong>Spaciocero</strong></h2>
@@ -76,6 +79,17 @@
                     <p>
                         Los usuarios destacan la atención personalizada de los instructores y el ambiente relajado
                         que se respira en cada sesión. Si buscas un lugar para desconectar, merece la pena pasar por allí.
+                    </p>
+                    <!-- ====== NUEVOS PÁRRAFOS (contenido ampliado) ====== -->
+                    <p>
+                        Nuestro equipo de instructores cuenta con años de experiencia y formación continua en yoga,
+                        pilates y técnicas de relajación. Cada clase se adapta a las necesidades individuales,
+                        creando un espacio seguro y acogedor tanto para principiantes como para practicantes avanzados.
+                    </p>
+                    <p>
+                        El centro está diseñado para transmitir calma desde el primer momento: luz natural,
+                        materiales cálidos y un silencio que invita a la introspección. Además, disponemos de
+                        vestuarios y zona de té para que disfrutes de una experiencia completa.
                     </p>
                 </div>
             </div>
@@ -154,7 +168,6 @@
         <section id="opiniones" class="section">
             <div class="container">
                 <h2 class="section-title">Lo que dicen de <strong>Spaciocero</strong></h2>
-                <!-- Widget Trustindex -->
                 <div class="trustindex-wrapper">
                     <script defer async src='https://cdn.trustindex.io/loader.js?382f4877794c83489246520b974'></script>
                 </div>
@@ -250,7 +263,7 @@
 
     </main>
 
-    <!-- ====== FOOTER ====== -->
+    <!-- ====== FOOTER (encabezados corregidos) ====== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -262,7 +275,8 @@
                     <p class="footer-desc">Centro de yoga y bienestar en Villaviciosa. Un espacio para encontrar tu equilibrio.</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Contacto</h4>
+                    <!-- CAMBIADO: "Contacto" -> "Información de contacto" -->
+                    <h4>Información de contacto</h4>
                     <ul>
                         <li><i class="fas fa-phone"></i> <a href="tel:684680902">684 68 09 02</a></li>
                         <li><i class="fas fa-envelope"></i> <a href="mailto:hola@spaciocero.es">hola@spaciocero.es</a></li>
@@ -270,7 +284,8 @@
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Horario</h4>
+                    <!-- CAMBIADO: "Horario" -> "Nuestro horario" -->
+                    <h4>Nuestro horario</h4>
                     <ul>
                         <li>L-J: 8:00 – 14:00 · 17:00 – 21:00</li>
                         <li>V-D: Cerrado</li>
@@ -292,5 +307,82 @@
 
     <!-- ====== JAVASCRIPT ====== -->
     <script src="./script.js"></script>
+
+    <!-- ====== NUEVO: Datos estructurados JSON-LD ====== -->
+    <!-- 1. LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Spaciocero",
+      "description": "Centro de yoga y pilates en Villaviciosa. Clases para todos los niveles. Relajación, flexibilidad y bienestar.",
+      "image": "https://spaciocero.pages.dev/spaciocero_logo2_retocado-circle.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "C. Alfonso X el Sabio, 3",
+        "addressLocality": "Villaviciosa",
+        "addressRegion": "Asturias",
+        "postalCode": "33300",
+        "addressCountry": "ES"
+      },
+      "telephone": "+34684680902",
+      "email": "hola@spaciocero.es",
+      "url": "https://spaciocero.pages.dev",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday"],
+          "opens": "08:00",
+          "closes": "21:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Thursday",
+          "opens": "09:00",
+          "closes": "21:00"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "9"
+      }
+    }
+    </script>
+
+    <!-- 2. FAQPage (Preguntas frecuentes) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Dónde está Spaciocero?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Estamos en la C. Alfonso X el Sabio, 3, 33300 Villaviciosa, Asturias, a dos pasos de la plaza del Ayuntamiento."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué horario tiene Spaciocero?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nuestro horario es: Lunes a Jueves de 8:00 a 21:00 (los jueves abrimos a las 9:00). Viernes, sábado y domingo cerrado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué valoración tiene Spaciocero?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tenemos una valoración media de 5.0 estrellas basada en 9 opiniones de Google. Nuestros clientes destacan la atención personalizada y el ambiente relajado."
+          }
+        }
+      ]
+    }
+    </script>
+
 </body>
 </html>

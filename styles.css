@@ -226,8 +226,9 @@ ul {
     z-index: 1;
 }
 
+/* ===== AJUSTE AQUÍ: H1 más pequeño para garantizar 2 líneas ===== */
 .hero-content h1 {
-    font-size: 3.4rem;
+    font-size: 3rem;  /* antes 3.4rem */
     font-weight: 300;
     letter-spacing: -0.03em;
     line-height: 1.15;
@@ -821,8 +822,9 @@ ul {
         align-items: center;
     }
 
+    /* ===== AJUSTE TABLET: H1 un poco más pequeño ===== */
     .hero h1 {
-        font-size: 2.6rem;
+        font-size: 2.4rem;  /* antes 2.6rem */
     }
 
     .contacto-grid {
@@ -854,9 +856,11 @@ ul {
 }
 
 @media (max-width: 480px) {
+    /* ===== AJUSTE MÓVIL: H1 más pequeño para garantizar 2 líneas ===== */
     .hero h1 {
-        font-size: 2rem;
+        font-size: 1.9rem;  /* antes 2rem */
     }
+
     .section-title {
         font-size: 1.8rem;
     }
