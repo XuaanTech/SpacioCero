@@ -3,155 +3,384 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Para ti, Mamá ❤️</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Patrick+Hand&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet" />
+    <title>Spaciocero · Yoga y Bienestar en Villaviciosa</title>
+    <meta name="description" content="Centro de yoga y pilates en Villaviciosa. Clases para todos los niveles. Relajación, flexibilidad y bienestar. ¡Ven a conocernos!" />
+    <link rel="icon" type="image/png" href="./spaciocero_logo2_retocado-circle.png" />
+    <!-- ====== NUEVO: Canonical ====== -->
+    <link rel="canonical" href="https://spaciocero.pages.dev/" />
+    <!-- ====== NUEVO: Apple Touch Icon ====== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
 
-<!-- ============ PANTALLA DE CONTRASEÑA ============ -->
-<div id="passwordOverlay">
-    <div class="password-box">
-        <h2>🔐 Para ti, Mamá</h2>
-        <p>Escribe la contraseña para entrar</p>
-        <input type="password" id="passwordInput" placeholder="Contraseña" />
-        <button id="passwordBtn">Entrar</button>
-        <p id="passwordError" style="color:#b05a4b; margin-top:0.5rem; display:none;">Contraseña incorrecta</p>
-    </div>
-</div>
-
-<!-- ============ CONTENIDO PRINCIPAL ============ -->
-<div class="container" id="mainContent" style="display:none;">
-
-    <!-- SOBRE ANIMADO -->
-    <div class="envelope-wrapper" id="envelopeWrapper">
-        <div class="envelope" id="envelope">
-            <div class="flap" id="flap"></div>
-            <div class="body"><span id="envelopeText">💌 Toca para abrir</span></div>
+    <!-- ====== CABECERA ====== -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#inicio" class="logo">
+                <img src="./spaciocero_logo2_retocado-circle.png" alt="Spaciocero" class="logo-img" />
+                <span class="logo-text">Spacio<span>cero</span></span>
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="nav" id="nav">
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#clases">Clases</a></li>
+                    <li><a href="#horarios">Horarios</a></li>
+                    <li><a href="#opiniones">Opiniones</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>
+    </header>
 
-    <!-- CARTA -->
-    <div class="letter" id="letter">
-        <h2>Querida Mamá...</h2>
-        <p>Hoy, en tu día, quería regalarte algo más que un abrazo o algo material. Quería que tuvieras un lugar al que venir siempre que necesites recordar lo increíblemente especial que eres para mí.</p>
-        <p>Gracias por cada sonrisa, por cada vez que nos apoyas, por querernos tanto y por ser tú misma, mamá. Tú ya sabes que, a mis ojos, eres la mejor madre que pudimos tener, y no hay día que pase sin agradecer tenerte a mi lado.</p>
-        <p>Esta página es un pequeño reflejo de todo lo que siento. Espero que te guste, que la disfrutes y la llenes de tus propios recuerdos también.</p>
-        <p>Con todo mi amor, hoy y siempre.</p>
-        <div class="firma">Tu hijo/a, Xuan</div>
-    </div>
+    <!-- ====== MAIN ====== -->
+    <main>
 
-    <!-- POLAROIDS -->
-    <div class="polaroid-section">
-        <h2>📸 Momentos que atesoro</h2>
-        <div class="polaroid-grid" id="polaroidGrid">
-            <div class="polaroid" style="--rot: -3deg;">
-                <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Recuerdo 1" />
-                <div class="caption">Siempre sonriendo</div>
+        <!-- ===== SECCIÓN: HERO ===== -->
+        <section id="inicio" class="hero">
+            <div class="container hero-inner">
+                <div class="hero-content">
+                    <h1>Centro de yoga y <strong>bienestar en Villaviciosa</strong></h1>
+                    <p class="hero-descripcion">
+                        A dos pasos de la plaza del Ayuntamiento, en la calle Alfonso X el Sabio, está Spaciocero.
+                        Un centro de yoga donde vecinos y visitantes encuentran tranquilidad en medio del bullicio del centro.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contacto" class="btn btn-primary">Reserva tu clase</a>
+                        <a href="#clases" class="btn btn-outline">Descubre más</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-illustration"></div>
+                </div>
             </div>
-            <div class="polaroid" style="--rot: 4deg;">
-                <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Recuerdo 2" />
-                <div class="caption">Nuestros paseos</div>
+        </section>
+
+        <!-- ===== SECCIÓN: SOBRE NOSOTROS (ampliada) ===== -->
+        <section id="sobre" class="section">
+            <div class="container">
+                <h2 class="section-title">Sobre <strong>Spaciocero</strong></h2>
+                <div class="sobre-texto">
+                    <p>
+                        Ofrece clases variadas para todos los niveles, con especial atención a las sesiones matutinas
+                        que son ideales para empezar el día con energía. Abre hasta las 21:00 de lunes a jueves,
+                        perfecto si sales tarde del trabajo y quieres estirar después.
+                    </p>
+                    <p>
+                        Los usuarios destacan la atención personalizada de los instructores y el ambiente relajado
+                        que se respira en cada sesión. Si buscas un lugar para desconectar, merece la pena pasar por allí.
+                    </p>
+                    <!-- ====== NUEVOS PÁRRAFOS (contenido ampliado) ====== -->
+                    <p>
+                        Nuestro equipo de instructores cuenta con años de experiencia y formación continua en yoga,
+                        pilates y técnicas de relajación. Cada clase se adapta a las necesidades individuales,
+                        creando un espacio seguro y acogedor tanto para principiantes como para practicantes avanzados.
+                    </p>
+                    <p>
+                        El centro está diseñado para transmitir calma desde el primer momento: luz natural,
+                        materiales cálidos y un silencio que invita a la introspección. Además, disponemos de
+                        vestuarios y zona de té para que disfrutes de una experiencia completa.
+                    </p>
+                </div>
             </div>
-            <div class="polaroid" style="--rot: -2deg;">
-                <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Recuerdo 3" />
-                <div class="caption">Tú y yo</div>
+        </section>
+
+        <!-- ===== SECCIÓN: CLASES ===== -->
+        <section id="clases" class="section">
+            <div class="container">
+                <h2 class="section-title">Nuestras <strong>clases y servicios</strong></h2>
+                <div class="clases-grid">
+                    <article class="clase-card">
+                        <div class="clase-icon">🧘</div>
+                        <h3>Hatha Yoga</h3>
+                        <p>Posturas y respiración para conectar cuerpo y mente. Ideal para principiantes.</p>
+                    </article>
+                    <article class="clase-card">
+                        <div class="clase-icon">🌀</div>
+                        <h3>Vinyasa Flow</h3>
+                        <p>Movimiento fluido y dinámico. Fortalece y flexibiliza al ritmo de la respiración.</p>
+                    </article>
+                    <article class="clase-card">
+                        <div class="clase-icon">🌙</div>
+                        <h3>Yin Yoga</h3>
+                        <p>Posturas pasivas y largas. Trabaja la fascia y la relajación profunda.</p>
+                    </article>
+                    <article class="clase-card">
+                        <div class="clase-icon">💪</div>
+                        <h3>Pilates</h3>
+                        <p>Fortalece el core, mejora la postura y la flexibilidad.</p>
+                    </article>
+                    <article class="clase-card">
+                        <div class="clase-icon">🩰</div>
+                        <h3>Barre</h3>
+                        <p>La técnica que mezcla ballet, yoga y pilates para tonificar y fortalecer.</p>
+                    </article>
+                    <article class="clase-card">
+                        <div class="clase-icon">✨</div>
+                        <h3>Tratamientos faciales y corporales</h3>
+                        <p>Un espacio para el cuidado personal. Relájate y disfruta de un momento para ti.</p>
+                    </article>
+                </div>
             </div>
-            <div class="polaroid" style="--rot: 5deg;">
-                <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Recuerdo 4" />
-                <div class="caption">Te quiero</div>
+        </section>
+
+        <!-- ===== SECCIÓN: HORARIOS ===== -->
+        <section id="horarios" class="section">
+            <div class="container">
+                <h2 class="section-title"><strong>Horarios</strong> de apertura</h2>
+                <div class="horario-wrapper">
+                    <table class="horario-tabla">
+                        <thead>
+                            <tr>
+                                <th>Día</th>
+                                <th>Apertura</th>
+                                <th>Cierre</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Lunes</td><td>8:00</td><td>21:00</td></tr>
+                            <tr><td>Martes</td><td>8:00</td><td>21:00</td></tr>
+                            <tr><td>Miércoles</td><td>8:00</td><td>21:00</td></tr>
+                            <tr><td>Jueves</td><td>9:00</td><td>21:00</td></tr>
+                            <tr><td>Viernes</td><td colspan="2" class="cerrado">Cerrado</td></tr>
+                            <tr><td>Sábado</td><td colspan="2" class="cerrado">Cerrado</td></tr>
+                            <tr><td>Domingo</td><td colspan="2" class="cerrado">Cerrado</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="horario-estado">
+                    <span class="estado-indicador abierto"></span> Abierto ahora · cierra a las 21:00
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== SECCIÓN: OPINIONES (MODIFICADA con GR Widget) ===== -->
+        <section id="opiniones" class="section">
+            <div class="container">
+                <h2 class="section-title">Lo que dicen de <strong>Spaciocero</strong></h2>
+                <!-- Widget de reseñas GR Widget (gratis para siempre) -->
+                <script src="https://grwidget.com/v1/grwidget.js" async defer></script>
+                <div class="grwidget-embed" data-grwidget-key="C6u9eK5mrOUkaSLZZCuBZKRG"></div>
+                <div class="opiniones-footer">
+                    <p>⭐ Valoración media: <strong>5.0</strong> · Basada en 9 opiniones de Google</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECCIÓN: FAQ ===== -->
+        <section id="faq" class="section">
+            <div class="container">
+                <h2 class="section-title">Preguntas <strong>frecuentes</strong></h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-pregunta" aria-expanded="false">
+                            <span>¿Dónde está Spaciocero?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-respuesta">
+                            <p>Estamos en la <strong>C. Alfonso X el Sabio, 3, 33300 Villaviciosa, Asturias</strong>, a dos pasos de la plaza del Ayuntamiento.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-pregunta" aria-expanded="false">
+                            <span>¿Qué horario tiene Spaciocero?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-respuesta">
+                            <p>Nuestro horario es: <strong>Lunes a Jueves de 8:00 a 21:00</strong> (los jueves abrimos a las 9:00). Viernes, sábado y domingo cerrado.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-pregunta" aria-expanded="false">
+                            <span>¿Qué valoración tiene Spaciocero?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-respuesta">
+                            <p>Tenemos una valoración media de <strong>5.0 estrellas</strong> basada en 9 opiniones de Google. Nuestros clientes destacan la atención personalizada y el ambiente relajado.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECCIÓN: CONTACTO ===== -->
+        <section id="contacto" class="section">
+            <div class="container">
+                <h2 class="section-title"><strong>Contacto</strong></h2>
+                <div class="contacto-grid">
+                    <div class="contacto-info">
+                        <p><i class="fas fa-location-dot contacto-icon"></i> C. Alfonso X el Sabio, 3, 33300 Villaviciosa, Asturias</p>
+                        <p><i class="fas fa-phone contacto-icon"></i> <a href="tel:684680902">684 68 09 02</a></p>
+                        <p><i class="fas fa-envelope contacto-icon"></i> <a href="mailto:hola@spaciocero.es">hola@spaciocero.es</a></p>
+                        <p><i class="fas fa-clock contacto-icon"></i> L-J 8:00 – 14:00 · 17:00 – 21:00</p>
+                        <a href="#" class="btn btn-primary" style="margin-top:1.5rem;">Reserva tu clase</a>
+                    </div>
+                    <div class="contacto-mapa">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2894.8833908297875!2d-5.4364549234641455!3d43.48390386336363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd366d06a86f21c9%3a0x9878264290576e03!2sspaciocero!5e0!3m2!1ses!2sus!4v1785161286812!5m2!1ses!2sus" 
+                            width="100%" 
+                            height="220" 
+                            style="border:0; border-radius:20px;" 
+                            allowfullscreen="" 
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Ubicación de Spaciocero">
+                        </iframe>
+                        <div class="mapa-acciones">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=C.+Alfonso+X+el+Sabio,+3,+33300+Villaviciosa,+Asturias,+España" 
+                               target="_blank" 
+                               class="btn-como-llegar">
+                                <i class="fas fa-car"></i> Cómo llegar
+                            </a>
+                            <div class="dropdown-compartir">
+                                <button class="btn-compartir" id="btnCompartir" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-share-alt"></i> Compartir
+                                </button>
+                                <div class="dropdown-menu" id="dropdownMenu" role="menu">
+                                    <a href="#" class="dropdown-item" data-share="whatsapp" role="menuitem"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                    <a href="#" class="dropdown-item" data-share="twitter" role="menuitem"><i class="fab fa-x-twitter"></i> Twitter</a>
+                                    <a href="#" class="dropdown-item" data-share="telegram" role="menuitem"><i class="fab fa-telegram-plane"></i> Telegram</a>
+                                    <a href="#" class="dropdown-item" data-share="facebook" role="menuitem"><i class="fab fa-facebook"></i> Facebook</a>
+                                    <a href="#" class="dropdown-item" data-share="email" role="menuitem"><i class="fas fa-envelope"></i> Email</a>
+                                    <button class="dropdown-item" data-share="copiar" role="menuitem"><i class="fas fa-link"></i> Copiar enlace</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ====== FOOTER (encabezados corregidos) ====== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#inicio" class="logo-footer">
+                        <img src="./spaciocero_logo2_retocado-circle.png" alt="Spaciocero" class="logo-footer-img" />
+                        <span class="logo-footer-text">Spacio<span>cero</span></span>
+                    </a>
+                    <p class="footer-desc">Centro de yoga y bienestar en Villaviciosa. Un espacio para encontrar tu equilibrio.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Información de contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> <a href="tel:684680902">684 68 09 02</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:hola@spaciocero.es">hola@spaciocero.es</a></li>
+                        <li><i class="fas fa-map-pin"></i> C. Alfonso X el Sabio, 3</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Nuestro horario</h4>
+                    <ul>
+                        <li>L-J: 8:00 – 14:00 · 17:00 – 21:00</li>
+                        <li>V-D: Cerrado</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Síguenos</h4>
+                    <div class="footer-socials">
+                        <a href="https://www.instagram.com/spaciocero/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 · Spaciocero</p>
             </div>
         </div>
-        <p style="text-align:center; color:#a07a6a; margin-top:0.5rem; font-size:0.9rem;">(Pasa el ratón sobre las fotos para verlas mejor)</p>
-    </div>
+    </footer>
 
-    <!-- FRASES ESCONDIDAS -->
-    <div class="hidden-phrases">
-        <span class="flower">🌸 <span class="tooltip">Eres mi sol</span></span>
-        <span class="flower">🌻 <span class="tooltip">La mejor mamá del mundo</span></span>
-        <span class="flower">🌺 <span class="tooltip">Gracias por existir</span></span>
-        <span class="flower">🌷 <span class="tooltip">Siempre en mi corazón</span></span>
-        <span class="flower">🌹 <span class="tooltip">Te adoro</span></span>
-    </div>
+    <!-- ====== JAVASCRIPT ====== -->
+    <script src="./script.js"></script>
 
-    <!-- BOTÓN DE ABRAZOS -->
-    <div class="hug-section">
-        <button class="hug-btn" id="hugBtn">
-            <span>🤗</span> Darme un abrazo
-            <span class="hug-count" id="hugCount">0</span>
-        </button>
-        <p style="margin-top:0.5rem; color:#7a4d3a; font-size:0.9rem;">Cada abrazo llena esta página de amor</p>
-    </div>
+    <!-- ====== NUEVO: Datos estructurados JSON-LD ====== -->
+    <!-- 1. LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Spaciocero",
+      "description": "Centro de yoga y pilates en Villaviciosa. Clases para todos los niveles. Relajación, flexibilidad y bienestar.",
+      "image": "https://spaciocero.pages.dev/spaciocero_logo2_retocado-circle.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "C. Alfonso X el Sabio, 3",
+        "addressLocality": "Villaviciosa",
+        "addressRegion": "Asturias",
+        "postalCode": "33300",
+        "addressCountry": "ES"
+      },
+      "telephone": "+34684680902",
+      "email": "hola@spaciocero.es",
+      "url": "https://spaciocero.pages.dev",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday"],
+          "opens": "08:00",
+          "closes": "21:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Thursday",
+          "opens": "09:00",
+          "closes": "21:00"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "9"
+      }
+    }
+    </script>
 
-    <!-- ========== REPRODUCTOR DE MÚSICA PERSONALIZADO ========== -->
-    <div class="music-player custom-player">
-        <div class="player-header">
-            <span id="currentSongTitle">🎵 Selecciona una canción</span>
-            <span class="time-display">
-                <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
-            </span>
-        </div>
+    <!-- 2. FAQPage (Preguntas frecuentes) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Dónde está Spaciocero?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Estamos en la C. Alfonso X el Sabio, 3, 33300 Villaviciosa, Asturias, a dos pasos de la plaza del Ayuntamiento."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué horario tiene Spaciocero?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nuestro horario es: Lunes a Jueves de 8:00 a 21:00 (los jueves abrimos a las 9:00). Viernes, sábado y domingo cerrado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué valoración tiene Spaciocero?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tenemos una valoración media de 5.0 estrellas basada en 9 opiniones de Google. Nuestros clientes destacan la atención personalizada y el ambiente relajado."
+          }
+        }
+      ]
+    }
+    </script>
 
-        <div class="player-controls">
-            <button id="shuffleBtn" title="Aleatorio">🔀</button>
-            <button id="prevBtn" title="Anterior">⏮</button>
-            <button id="playBtn" title="Reproducir/Pausar">▶</button>
-            <button id="nextBtn" title="Siguiente">⏭</button>
-            <button id="repeatBtn" title="Repetir">🔁</button>
-            <button id="volumeToggle" title="Silenciar/Activar sonido">🔊</button>
-            <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.8" title="Volumen" />
-        </div>
-
-        <div class="progress-container">
-            <input type="range" id="progressSlider" min="0" max="100" value="0" title="Progreso" />
-        </div>
-
-        <div class="playlist-container">
-            <ul id="playlistItems">
-                <!-- Se llena desde JavaScript -->
-            </ul>
-        </div>
-    </div>
-
-    <!-- RECUERDOS -->
-    <div class="recuerdos-section">
-        <h2 style="font-family: 'Patrick Hand', cursive; color:#6b3f34; text-align:center;">📖 Nuestros recuerdos</h2>
-        <div id="recuerdosContainer">
-            <div class="recuerdos-grid" id="recuerdosGrid"></div>
-            <p id="noRecuerdos" style="text-align:center; color:#a07a6a;">Todavía no hay recuerdos. ¡Añade el primero!</p>
-        </div>
-    </div>
-
-    <!-- ENLACE ADMIN -->
-    <div class="admin-link">
-        <a id="adminToggle">🔧 Administrar recuerdos</a>
-    </div>
-
-    <!-- PANEL DE ADMIN -->
-    <div class="admin-panel" id="adminPanel">
-        <h3>✏️ Añadir un recuerdo</h3>
-        <input type="text" id="recTitulo" placeholder="Título (ej: Nuestro viaje)" />
-        <textarea id="recTexto" rows="3" placeholder="Cuéntame algo bonito..."></textarea>
-        <input type="file" id="recImagenFile" accept="image/*" style="width:100%; padding:0.8rem 1.2rem; margin-bottom:1rem; border:2px solid #dbb8a0; border-radius:30px; font-family:'Quicksand',sans-serif; background:white;" />
-        <p style="font-size:0.8rem; color:#7a4d3a; margin-top:-0.5rem; margin-bottom:1rem;">📸 Selecciona una imagen (máx. 100 MB)</p>
-        <button id="guardarRecuerdo">Guardar recuerdo</button>
-        <div id="adminListaRecuerdos" style="margin-top:1.5rem;"></div>
-        <p style="margin-top:1rem; font-size:0.9rem; color:#6b3f34;">Los recuerdos se guardan en la nube (Cloudflare D1 + Filebase).</p>
-        <button id="cerrarAdmin" style="background:#a07a6a; margin-top:0.5rem;">Cerrar panel</button>
-    </div>
-
-</div> <!-- fin container -->
-
-<!-- ============ MODAL PARA IMÁGENES GRANDES ============ -->
-<div id="imageModal" class="image-modal">
-    <span class="modal-close" id="modalClose">&times;</span>
-    <img class="modal-content" id="modalImage" />
-    <div id="modalCaption" class="modal-caption"></div>
-</div>
-
-<!-- CONFETI -->
-<div class="heart-rain" id="heartRain"></div>
-
-<script src="./script.js"></script>
 </body>
 </html>
