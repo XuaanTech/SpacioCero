@@ -385,8 +385,10 @@ ul {
 /* ============================================
    OPINIONES
    ============================================ */
-.trustindex-wrapper {
-    margin-top: 1rem;
+/* Ajuste para el widget de GR Widget (gratis para siempre) */
+.grwidget-embed {
+    margin: 1.5rem auto;
+    max-width: 100%;
 }
 
 .opiniones-footer {
