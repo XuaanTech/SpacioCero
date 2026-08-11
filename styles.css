@@ -383,9 +383,39 @@ ul {
 }
 
 /* ============================================
-   OPINIONES - ELIMINADO EL BLOQUE ANTERIOR
+   OPINIONES (WIDGET CENTRADO)
    ============================================ */
-/* Ya no se usa .grwidget-embed ni .opiniones-footer */
+#opiniones .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grwidget-embed {
+    width: 100%;
+    max-width: 800px; /* Ajusta el ancho máximo si lo deseas */
+    margin: 0 auto;
+}
+
+.opiniones-footer {
+    text-align: center;
+    width: 100%;
+    margin-top: 1.8rem;
+    color: #4a5a60;
+    font-size: 1rem;
+}
+
+.opiniones-footer strong {
+    color: #1a1a1a;
+}
+
+/* Si el contenido interno del widget sigue desalineado, descomenta esto:
+.grwidget-embed * {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+*/
 
 /* ============================================
    FAQ (Acordeón)
@@ -894,40 +924,4 @@ ul {
         font-size: 0.85rem;
         padding: 0.65rem 1rem;
     }
-}
-
-/* ============================================
-   CALIFICACIÓN CENTRADA (NUEVO)
-   ============================================ */
-.calificacion-centrada {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 0 auto;
-    padding: 1.5rem 0;
-}
-
-.estrellas-grandes {
-    font-size: 2.8rem;
-    color: #f59e0b; /* Amarillo dorado */
-    letter-spacing: 0.2rem;
-    margin-bottom: 0.5rem;
-}
-
-.estrellas-grandes .fa-star {
-    margin: 0 0.1rem;
-}
-
-.puntuacion-media {
-    font-size: 1.2rem;
-    color: #4a5a60;
-    margin: 0;
-}
-
-.puntuacion-media strong {
-    font-size: 1.6rem;
-    color: #1a1a1a;
-    font-weight: 700;
 }
