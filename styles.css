@@ -383,23 +383,9 @@ ul {
 }
 
 /* ============================================
-   OPINIONES
+   OPINIONES - ELIMINADO EL BLOQUE ANTERIOR
    ============================================ */
-/* Ajuste para el widget de GR Widget (gratis para siempre) */
-.grwidget-embed {
-    margin: 1.5rem auto;
-    max-width: 100%;
-}
-
-.opiniones-footer {
-    text-align: center;
-    margin-top: 1.8rem;
-    color: #4a5a60;
-    font-size: 1rem;
-}
-.opiniones-footer strong {
-    color: #1a1a1a;
-}
+/* Ya no se usa .grwidget-embed ni .opiniones-footer */
 
 /* ============================================
    FAQ (Acordeón)
@@ -908,4 +894,40 @@ ul {
         font-size: 0.85rem;
         padding: 0.65rem 1rem;
     }
+}
+
+/* ============================================
+   CALIFICACIÓN CENTRADA (NUEVO)
+   ============================================ */
+.calificacion-centrada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem 0;
+}
+
+.estrellas-grandes {
+    font-size: 2.8rem;
+    color: #f59e0b; /* Amarillo dorado */
+    letter-spacing: 0.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.estrellas-grandes .fa-star {
+    margin: 0 0.1rem;
+}
+
+.puntuacion-media {
+    font-size: 1.2rem;
+    color: #4a5a60;
+    margin: 0;
+}
+
+.puntuacion-media strong {
+    font-size: 1.6rem;
+    color: #1a1a1a;
+    font-weight: 700;
 }
