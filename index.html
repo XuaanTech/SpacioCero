@@ -6,21 +6,17 @@
     <title>Spaciocero · Yoga y Bienestar en Villaviciosa</title>
     <meta name="description" content="Centro de yoga y pilates en Villaviciosa. Clases para todos los niveles. Relajación, flexibilidad y bienestar. ¡Ven a conocernos!" />
     <link rel="icon" type="image/png" href="./spaciocero_logo2_retocado-circle.png" />
-    <!-- ====== NUEVO: Canonical ====== -->
     <link rel="canonical" href="https://spaciocero.pages.dev/" />
-    <!-- ====== NUEVO: Apple Touch Icon ====== -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <!-- Google Fonts (Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
 
-    <!-- ====== CABECERA ====== -->
+    <!-- CABECERA -->
     <header class="header">
         <div class="container header-inner">
             <a href="#inicio" class="logo">
@@ -43,10 +39,9 @@
         </div>
     </header>
 
-    <!-- ====== MAIN ====== -->
     <main>
 
-        <!-- ===== SECCIÓN: HERO ===== -->
+        <!-- HERO -->
         <section id="inicio" class="hero">
             <div class="container hero-inner">
                 <div class="hero-content">
@@ -66,7 +61,7 @@
             </div>
         </section>
 
-        <!-- ===== SECCIÓN: SOBRE NOSOTROS (ampliada) ===== -->
+        <!-- SOBRE NOSOTROS -->
         <section id="sobre" class="section">
             <div class="container">
                 <h2 class="section-title">Sobre <strong>Spaciocero</strong></h2>
@@ -80,7 +75,6 @@
                         Los usuarios destacan la atención personalizada de los instructores y el ambiente relajado
                         que se respira en cada sesión. Si buscas un lugar para desconectar, merece la pena pasar por allí.
                     </p>
-                    <!-- ====== NUEVOS PÁRRAFOS (contenido ampliado) ====== -->
                     <p>
                         Nuestro equipo de instructores cuenta con años de experiencia y formación continua en yoga,
                         pilates y técnicas de relajación. Cada clase se adapta a las necesidades individuales,
@@ -95,7 +89,7 @@
             </div>
         </section>
 
-        <!-- ===== SECCIÓN: CLASES ===== -->
+        <!-- CLASES -->
         <section id="clases" class="section">
             <div class="container">
                 <h2 class="section-title">Nuestras <strong>clases y servicios</strong></h2>
@@ -134,7 +128,7 @@
             </div>
         </section>
 
-        <!-- ===== SECCIÓN: HORARIOS ===== -->
+        <!-- HORARIOS -->
         <section id="horarios" class="section">
             <div class="container">
                 <h2 class="section-title"><strong>Horarios</strong> de apertura</h2>
@@ -164,11 +158,10 @@
             </div>
         </section>
 
-        <!-- ===== SECCIÓN: OPINIONES (con GR Widget centrado) ===== -->
+        <!-- OPINIONES (con GR Widget centrado) -->
         <section id="opiniones" class="section">
             <div class="container">
                 <h2 class="section-title">Lo que dicen de <strong>Spaciocero</strong></h2>
-                <!-- Widget de reseñas GR Widget (gratis para siempre) -->
                 <script src="https://grwidget.com/v1/grwidget.js" async defer></script>
                 <div class="grwidget-embed" data-grwidget-key="C6u9eK5mrOUkaSLZZCuBZKRG"></div>
                 <div class="opiniones-footer">
@@ -177,7 +170,7 @@
             </div>
         </section>
 
-        <!-- ===== SECCIÓN: FAQ ===== -->
+        <!-- FAQ -->
         <section id="faq" class="section">
             <div class="container">
                 <h2 class="section-title">Preguntas <strong>frecuentes</strong></h2>
@@ -213,7 +206,7 @@
             </div>
         </section>
 
-        <!-- ===== SECCIÓN: CONTACTO ===== -->
+        <!-- CONTACTO -->
         <section id="contacto" class="section">
             <div class="container">
                 <h2 class="section-title"><strong>Contacto</strong></h2>
@@ -263,7 +256,7 @@
 
     </main>
 
-    <!-- ====== FOOTER (encabezados corregidos) ====== -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -303,11 +296,58 @@
         </div>
     </footer>
 
-    <!-- ====== JAVASCRIPT ====== -->
+    <!-- JAVASCRIPT -->
     <script src="./script.js"></script>
 
-    <!-- ====== NUEVO: Datos estructurados JSON-LD ====== -->
-    <!-- 1. LocalBusiness -->
+    <!-- FORZAR CENTRADO DEL WIDGET DE OPINIONES -->
+    <script>
+        (function() {
+            function centrarWidget() {
+                var widget = document.querySelector('.grwidget-embed');
+                if (widget) {
+                    widget.style.display = 'block';
+                    widget.style.margin = '0 auto';
+                    widget.style.textAlign = 'center';
+                    widget.style.width = '100%';
+                    widget.style.maxWidth = '800px';
+                    // Forzar centrado a todos los elementos internos
+                    var hijos = widget.querySelectorAll('*');
+                    for (var i = 0; i < hijos.length; i++) {
+                        hijos[i].style.textAlign = 'center';
+                        hijos[i].style.marginLeft = 'auto';
+                        hijos[i].style.marginRight = 'auto';
+                        hijos[i].style.float = 'none';
+                        // Si es un bloque, lo dejamos como bloque
+                        if (hijos[i].style.display === 'inline-block') {
+                            // no forzamos block para que no se rompa
+                        }
+                    }
+                }
+            }
+
+            // Intentar centrar ahora mismo
+            centrarWidget();
+
+            // Si el script de GR Widget ya está cargado, intentamos de nuevo tras un breve delay
+            var scriptGR = document.querySelector('script[src*="grwidget"]');
+            if (scriptGR) {
+                scriptGR.addEventListener('load', function() {
+                    setTimeout(centrarWidget, 300);
+                });
+            }
+
+            // También cuando el DOM esté listo
+            if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                setTimeout(centrarWidget, 200);
+            } else {
+                document.addEventListener('DOMContentLoaded', function() {
+                    setTimeout(centrarWidget, 200);
+                });
+            }
+        })();
+    </script>
+
+    <!-- Datos estructurados JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -348,7 +388,6 @@
     }
     </script>
 
-    <!-- 2. FAQPage (Preguntas frecuentes) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",

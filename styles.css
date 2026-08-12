@@ -110,7 +110,6 @@ ul {
     color: #000;
 }
 
-/* Menú hamburguesa */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -129,7 +128,7 @@ ul {
 }
 
 /* ============================================
-   BOTONES - VERSIÓN MEJORADA Y VISIBLE
+   BOTONES
    ============================================ */
 .btn {
     display: inline-block;
@@ -147,16 +146,15 @@ ul {
     text-transform: uppercase;
 }
 
-/* Botón principal: fondo oscuro, texto blanco SIEMPRE */
 .btn-primary {
-    background: #000000;  /* Negro puro */
-    color: #ffffff;       /* Texto blanco */
+    background: #000000;
+    color: #ffffff;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .btn-primary:hover {
-    background: #222222;  /* Gris muy oscuro al pasar el ratón */
-    color: #ffffff;       /* El texto SIEMPRE blanco */
+    background: #222222;
+    color: #ffffff;
     transform: translateY(-2px);
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
 }
@@ -226,9 +224,8 @@ ul {
     z-index: 1;
 }
 
-/* ===== AJUSTE AQUÍ: H1 más pequeño para garantizar 2 líneas ===== */
 .hero-content h1 {
-    font-size: 3rem;  /* antes 3.4rem */
+    font-size: 3rem;
     font-weight: 300;
     letter-spacing: -0.03em;
     line-height: 1.15;
@@ -383,42 +380,57 @@ ul {
 }
 
 /* ============================================
-   OPINIONES (WIDGET CENTRADO)
+   OPINIONES - WIDGET CENTRADO CON !important
    ============================================ */
 #opiniones .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
 }
 
 .grwidget-embed {
-    width: 100%;
-    max-width: 800px; /* Ajusta el ancho máximo si lo deseas */
-    margin: 0 auto;
+    width: 100% !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    display: block !important;
+    text-align: center !important;
 }
 
-.opiniones-footer {
-    text-align: center;
-    width: 100%;
-    margin-top: 1.8rem;
-    color: #4a5a60;
-    font-size: 1rem;
-}
-
-.opiniones-footer strong {
-    color: #1a1a1a;
-}
-
-/* Si el contenido interno del widget sigue desalineado, descomenta esto:
+/* Forzar centrado a todos los elementos internos del widget */
 .grwidget-embed * {
     text-align: center !important;
     margin-left: auto !important;
     margin-right: auto !important;
+    float: none !important;
+    display: block !important;
 }
-*/
+
+/* Pero algunos elementos deben ser inline-block para no romper */
+.grwidget-embed .grw-rating,
+.grwidget-embed .grw-stars,
+.grwidget-embed .grw-review-text,
+.grwidget-embed .grw-review-author,
+.grwidget-embed .grw-review-date,
+.grwidget-embed .grw-review-content {
+    display: inline-block !important;
+    float: none !important;
+    text-align: center !important;
+}
+
+.opiniones-footer {
+    text-align: center !important;
+    width: 100% !important;
+    margin-top: 1.8rem !important;
+    color: #4a5a60 !important;
+    font-size: 1rem !important;
+}
+
+.opiniones-footer strong {
+    color: #1a1a1a !important;
+}
 
 /* ============================================
-   FAQ (Acordeón)
+   FAQ
    ============================================ */
 .faq-list {
     max-width: 800px;
@@ -756,7 +768,7 @@ ul {
 }
 
 /* ============================================
-   BOTÓN CONTACTO - RESERVA TU CLASE (MEJORADO)
+   BOTÓN CONTACTO - RESERVA TU CLASE
    ============================================ */
 .contacto-info .btn-primary {
     background: #000000 !important;
@@ -784,7 +796,6 @@ ul {
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
 }
 
-/* Ajuste para móviles */
 @media (max-width: 480px) {
     .contacto-info .btn-primary {
         font-size: 1rem !important;
@@ -840,9 +851,8 @@ ul {
         align-items: center;
     }
 
-    /* ===== AJUSTE TABLET: H1 un poco más pequeño ===== */
     .hero h1 {
-        font-size: 2.4rem;  /* antes 2.6rem */
+        font-size: 2.4rem;
     }
 
     .contacto-grid {
@@ -874,9 +884,8 @@ ul {
 }
 
 @media (max-width: 480px) {
-    /* ===== AJUSTE MÓVIL: H1 más pequeño para garantizar 2 líneas ===== */
     .hero h1 {
-        font-size: 1.9rem;  /* antes 2rem */
+        font-size: 1.9rem;
     }
 
     .section-title {
