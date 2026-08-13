@@ -1,6 +1,7 @@
 /**
  * Spaciocero - Script principal
- * Funcionalidad: menú hamburguesa, dropdown compartir, acordeón FAQ
+ * Funcionalidad: menú hamburguesa, dropdown compartir, acordeón FAQ,
+ * estado de apertura dinámico, año dinámico y banner de cookies (con Aceptar/Rechazar).
  */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -140,17 +141,92 @@ document.addEventListener('DOMContentLoaded', function () {
     preguntas.forEach(function (btn) {
         btn.addEventListener('click', function () {
             const isOpen = this.getAttribute('aria-expanded') === 'true';
-            // Cerrar todos los demás (opcional)
             preguntas.forEach(function (b) {
                 if (b !== btn && b.getAttribute('aria-expanded') === 'true') {
                     b.setAttribute('aria-expanded', 'false');
                     b.nextElementSibling.classList.remove('open');
                 }
             });
-            // Alternar el actual
             this.setAttribute('aria-expanded', !isOpen);
             this.nextElementSibling.classList.toggle('open');
         });
     });
+
+    // =============================================
+    // 5. ESTADO DE APERTURA DINÁMICO
+    // =============================================
+    function actualizarEstadoApertura() {
+        const ahora = new Date();
+        const dia = ahora.getDay();
+        const hora = ahora.getHours();
+        const minutos = ahora.getMinutes();
+        const horaMin = hora + minutos / 60;
+
+        const horario = {
+            1: { abrir: 8, cerrar: 21 },
+            2: { abrir: 8, cerrar: 21 },
+            3: { abrir: 8, cerrar: 21 },
+            4: { abrir: 9, cerrar: 21 }
+        };
+
+        const hoy = horario[dia];
+        const indicador = document.querySelector('.estado-indicador');
+        const textoEstado = document.querySelector('.horario-estado');
+
+        if (!indicador || !textoEstado) return;
+
+        let abierto = false;
+        let mensaje = '';
+
+        if (hoy) {
+            abierto = (horaMin >= hoy.abrir && horaMin < hoy.cerrar);
+            mensaje = abierto 
+                ? `Abierto ahora · cierra a las ${hoy.cerrar}:00` 
+                : `Cerrado · abre a las ${hoy.abrir}:00`;
+        } else {
+            mensaje = 'Cerrado · abre el lunes a las 8:00';
+        }
+
+        textoEstado.innerHTML = `<span class="estado-indicador ${abierto ? 'abierto' : 'cerrado'}"></span> ${mensaje}`;
+    }
+
+    actualizarEstadoApertura();
+    setInterval(actualizarEstadoApertura, 60000);
+
+    // =============================================
+    // 6. AÑO DINÁMICO EN FOOTER
+    // =============================================
+    const footerYear = document.querySelector('.footer-bottom p');
+    if (footerYear) {
+        const añoActual = new Date().getFullYear();
+        footerYear.innerHTML = `&copy; ${añoActual} · Spaciocero`;
+    }
+
+    // =============================================
+    // 7. BANNER DE COOKIES (CON ACEPTAR Y RECHAZAR)
+    // =============================================
+    const cookieBanner = document.getElementById('cookieBanner');
+    const acceptBtn = document.getElementById('acceptCookies');
+    const rejectBtn = document.getElementById('rejectCookies');
+
+    if (cookieBanner && acceptBtn && rejectBtn) {
+        // Comprobar si ya se ha tomado una decisión
+        const cookiePreference = localStorage.getItem('cookiesPreference');
+        if (!cookiePreference) {
+            cookieBanner.style.display = 'flex';
+        }
+
+        acceptBtn.addEventListener('click', function() {
+            localStorage.setItem('cookiesPreference', 'accepted');
+            cookieBanner.style.display = 'none';
+            // Aquí podrías cargar scripts de terceros si los hubiera
+        });
+
+        rejectBtn.addEventListener('click', function() {
+            localStorage.setItem('cookiesPreference', 'rejected');
+            cookieBanner.style.display = 'none';
+            // Si quisieras, podrías deshabilitar cookies de terceros
+        });
+    }
 
 });

@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spaciocero · Yoga y Bienestar en Villaviciosa</title>
     <meta name="description" content="Centro de yoga y pilates en Villaviciosa. Clases para todos los niveles. Relajación, flexibilidad y bienestar. ¡Ven a conocernos!" />
-    <link rel="icon" type="image/png" href="./spaciocero_logo2_retocado-circle.png" />
+    <!-- CAMBIO: favicon con soporte WebP y fallback PNG -->
+    <link rel="icon" type="image/webp" href="./spaciocero_logo2_retocado-circle.webp" />
+    <link rel="icon" type="image/png" href="./spaciocero_logo2_retocado-circle.png" sizes="any" />
     <link rel="canonical" href="https://spaciocero.pages.dev/" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,6 +15,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="./styles.css" />
+
+    <!-- Open Graph / Redes Sociales -->
+    <meta property="og:title" content="Spaciocero · Yoga y Bienestar en Villaviciosa" />
+    <meta property="og:description" content="Centro de yoga y pilates en Villaviciosa. Clases para todos los niveles. ¡Ven a conocernos!" />
+    <meta property="og:image" content="https://spaciocero.pages.dev/spaciocero_logo2_retocado-circle.webp" />
+    <meta property="og:url" content="https://spaciocero.pages.dev/" />
+    <meta name="twitter:card" content="summary_large_image" />
 </head>
 <body>
 
@@ -20,7 +29,12 @@
     <header class="header">
         <div class="container header-inner">
             <a href="#inicio" class="logo">
-                <img src="./spaciocero_logo2_retocado-circle.png" alt="Spaciocero" class="logo-img" />
+                <!-- Logo con soporte WebP y fallback PNG -->
+                <picture>
+                    <source srcset="./spaciocero_logo2_retocado-circle.webp" type="image/webp" />
+                    <!-- CAMBIO: fallback a PNG (antes era .webp) -->
+                    <img src="./spaciocero_logo2_retocado-circle.png" alt="Spaciocero" class="logo-img" loading="lazy" />
+                </picture>
                 <span class="logo-text">Spacio<span>cero</span></span>
             </a>
             <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
@@ -29,6 +43,7 @@
             <nav class="nav" id="nav">
                 <ul class="nav-links">
                     <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#sobre">Sobre nosotros</a></li>
                     <li><a href="#clases">Clases</a></li>
                     <li><a href="#horarios">Horarios</a></li>
                     <li><a href="#opiniones">Opiniones</a></li>
@@ -51,7 +66,7 @@
                         Un centro de yoga donde vecinos y visitantes encuentran tranquilidad en medio del bullicio del centro.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#contacto" class="btn btn-primary">Reserva tu clase</a>
+                        <a href="https://wa.me/34684680902?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20una%20clase%20en%20Spaciocero" target="_blank" class="btn btn-primary">Reserva tu clase</a>
                         <a href="#clases" class="btn btn-outline">Descubre más</a>
                     </div>
                 </div>
@@ -216,7 +231,7 @@
                         <p><i class="fas fa-phone contacto-icon"></i> <a href="tel:684680902">684 68 09 02</a></p>
                         <p><i class="fas fa-envelope contacto-icon"></i> <a href="mailto:hola@spaciocero.es">hola@spaciocero.es</a></p>
                         <p><i class="fas fa-clock contacto-icon"></i> L-J 8:00 – 14:00 · 17:00 – 21:00</p>
-                        <a href="#" class="btn btn-primary" style="margin-top:1.5rem;">Reserva tu clase</a>
+                        <a href="https://wa.me/34684680902?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20una%20clase%20en%20Spaciocero" target="_blank" class="btn btn-primary" style="margin-top:1.5rem;">Reserva tu clase</a>
                     </div>
                     <div class="contacto-mapa">
                         <iframe 
@@ -256,13 +271,16 @@
 
     </main>
 
-    <!-- FOOTER -->
+    <!-- FOOTER (MODIFICADO: AÑADIDOS ENLACES LEGALES) -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <a href="#inicio" class="logo-footer">
-                        <img src="./spaciocero_logo2_retocado-circle.png" alt="Spaciocero" class="logo-footer-img" />
+                        <picture>
+                            <source srcset="./spaciocero_logo2_retocado-circle.webp" type="image/webp" />
+                            <img src="./spaciocero_logo2_retocado-circle.png" alt="Spaciocero" class="logo-footer-img" loading="lazy" />
+                        </picture>
                         <span class="logo-footer-text">Spacio<span>cero</span></span>
                     </a>
                     <p class="footer-desc">Centro de yoga y bienestar en Villaviciosa. Un espacio para encontrar tu equilibrio.</p>
@@ -286,66 +304,38 @@
                     <h4>Síguenos</h4>
                     <div class="footer-socials">
                         <a href="https://www.instagram.com/spaciocero/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <!-- Enlace de Facebook ELIMINADO -->
                     </div>
                 </div>
             </div>
+
+            <!-- NUEVA FILA DE ENLACES LEGALES -->
+            <div class="footer-legal">
+                <a href="./paginas-legales/politica-privacidad.html">Política de privacidad</a>
+                <span class="separator">·</span>
+                <a href="./paginas-legales/aviso-legal.html">Aviso legal</a>
+                <span class="separator">·</span>
+                <a href="./paginas-legales/politica-cookies.html">Política de cookies</a>
+            </div>
+
             <div class="footer-bottom">
                 <p>&copy; 2026 · Spaciocero</p>
             </div>
         </div>
     </footer>
 
+    <!-- BANNER DE COOKIES (CON BOTÓN RECHAZAR) - ENLACE ACTUALIZADO -->
+    <div id="cookieBanner" class="cookie-banner" style="display: none;">
+        <p>Usamos cookies para mejorar tu experiencia. Puedes aceptarlas o rechazarlas. 
+            <a href="./paginas-legales/politica-cookies.html" target="_blank">Más información</a></p>
+        <div class="cookie-buttons">
+            <button id="rejectCookies" class="btn btn-outline btn-small">Rechazar</button>
+            <button id="acceptCookies" class="btn btn-primary btn-small">Aceptar</button>
+        </div>
+    </div>
+
     <!-- JAVASCRIPT -->
     <script src="./script.js"></script>
-
-    <!-- FORZAR CENTRADO DEL WIDGET DE OPINIONES -->
-    <script>
-        (function() {
-            function centrarWidget() {
-                var widget = document.querySelector('.grwidget-embed');
-                if (widget) {
-                    widget.style.display = 'block';
-                    widget.style.margin = '0 auto';
-                    widget.style.textAlign = 'center';
-                    widget.style.width = '100%';
-                    widget.style.maxWidth = '800px';
-                    // Forzar centrado a todos los elementos internos
-                    var hijos = widget.querySelectorAll('*');
-                    for (var i = 0; i < hijos.length; i++) {
-                        hijos[i].style.textAlign = 'center';
-                        hijos[i].style.marginLeft = 'auto';
-                        hijos[i].style.marginRight = 'auto';
-                        hijos[i].style.float = 'none';
-                        // Si es un bloque, lo dejamos como bloque
-                        if (hijos[i].style.display === 'inline-block') {
-                            // no forzamos block para que no se rompa
-                        }
-                    }
-                }
-            }
-
-            // Intentar centrar ahora mismo
-            centrarWidget();
-
-            // Si el script de GR Widget ya está cargado, intentamos de nuevo tras un breve delay
-            var scriptGR = document.querySelector('script[src*="grwidget"]');
-            if (scriptGR) {
-                scriptGR.addEventListener('load', function() {
-                    setTimeout(centrarWidget, 300);
-                });
-            }
-
-            // También cuando el DOM esté listo
-            if (document.readyState === 'complete' || document.readyState === 'interactive') {
-                setTimeout(centrarWidget, 200);
-            } else {
-                document.addEventListener('DOMContentLoaded', function() {
-                    setTimeout(centrarWidget, 200);
-                });
-            }
-        })();
-    </script>
 
     <!-- Datos estructurados JSON-LD -->
     <script type="application/ld+json">

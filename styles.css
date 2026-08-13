@@ -934,3 +934,125 @@ ul {
         padding: 0.65rem 1rem;
     }
 }
+
+/* ============================================
+   COOKIE BANNER (CON BOTÓN RECHAZAR)
+   ============================================ */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #1a1a1a;
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    z-index: 9999;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+}
+.cookie-banner p {
+    margin: 0;
+    font-size: 0.9rem;
+    flex: 1;
+}
+.cookie-banner a {
+    color: #a0d0c0;
+    text-decoration: underline;
+}
+.cookie-buttons {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+.cookie-banner .btn-outline {
+    background: transparent;
+    color: #fff;
+    border: 1.5px solid #fff;
+}
+.cookie-banner .btn-outline:hover {
+    background: #fff;
+    color: #1a1a1a;
+}
+.btn-small {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.85rem;
+}
+@media (max-width: 600px) {
+    .cookie-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+    .cookie-buttons {
+        justify-content: center;
+    }
+}
+
+/* ============================================
+   FOOTER LEGAL (enlaces en el footer)
+   ============================================ */
+.footer-legal {
+    text-align: center;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid #eaeaea;
+    font-size: 0.85rem;
+    color: #6b7a7f;
+}
+.footer-legal a {
+    color: #6b7a7f;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.footer-legal a:hover {
+    color: #1a1a1a;
+    text-decoration: underline;
+}
+.footer-legal .separator {
+    margin: 0 0.6rem;
+    color: #d0d8d5;
+}
+
+/* ============================================
+   PÁGINAS LEGALES (Política de privacidad, Aviso legal, Política de cookies)
+   ============================================ */
+.legal-section {
+    padding: 4rem 0 6rem;
+}
+.legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+    color: #2d3a3f;
+    line-height: 1.8;
+}
+.legal-content h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem;
+    color: #1a1a1a;
+}
+.legal-content p {
+    margin-bottom: 1.2rem;
+}
+.legal-content ul {
+    margin: 1rem 0 1.5rem 1.5rem;
+    list-style: disc;
+}
+.legal-content ul li {
+    margin-bottom: 0.5rem;
+}
+.legal-content a {
+    color: #000;
+    text-decoration: underline;
+}
+.legal-content a:hover {
+    color: #6b7a7f;
+}
+.legal-content em {
+    color: #6b7a7f;
+    font-size: 0.9rem;
+}
