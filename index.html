@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spaciocero · Yoga y Bienestar en Villaviciosa</title>
     <meta name="description" content="Centro de yoga y pilates en Villaviciosa. Clases para todos los niveles. Relajación, flexibilidad y bienestar. ¡Ven a conocernos!" />
-    <!-- CAMBIO: favicon con soporte WebP y fallback PNG -->
     <link rel="icon" type="image/webp" href="./spaciocero_logo2_retocado-circle.webp" />
     <link rel="icon" type="image/png" href="./spaciocero_logo2_retocado-circle.png" sizes="any" />
     <link rel="canonical" href="https://spaciocero.pages.dev/" />
@@ -29,10 +28,8 @@
     <header class="header">
         <div class="container header-inner">
             <a href="#inicio" class="logo">
-                <!-- Logo con soporte WebP y fallback PNG -->
                 <picture>
                     <source srcset="./spaciocero_logo2_retocado-circle.webp" type="image/webp" />
-                    <!-- CAMBIO: fallback a PNG (antes era .webp) -->
                     <img src="./spaciocero_logo2_retocado-circle.png" alt="Spaciocero" class="logo-img" loading="lazy" />
                 </picture>
                 <span class="logo-text">Spacio<span>cero</span></span>
@@ -66,7 +63,8 @@
                         Un centro de yoga donde vecinos y visitantes encuentran tranquilidad en medio del bullicio del centro.
                     </p>
                     <div class="hero-buttons">
-                        <a href="https://wa.me/34684680902?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20una%20clase%20en%20Spaciocero" target="_blank" class="btn btn-primary">Reserva tu clase</a>
+                        <!-- Botón que ahora lleva a la sección de clases -->
+                        <a href="#clases" class="btn btn-primary">Reserva tu clase</a>
                         <a href="#clases" class="btn btn-outline">Descubre más</a>
                     </div>
                 </div>
@@ -101,10 +99,17 @@
                         vestuarios y zona de té para que disfrutes de una experiencia completa.
                     </p>
                 </div>
+
+                <!-- PLACEHOLDER DE FOTOS -->
+                <div class="sobre-fotos-placeholder">
+                    <p>
+                        📸 <strong>Aquí irán las fotos reales del centro, las clases y el equipo</strong>
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- CLASES -->
+        <!-- CLASES (MEJORADA) -->
         <section id="clases" class="section">
             <div class="container">
                 <h2 class="section-title">Nuestras <strong>clases y servicios</strong></h2>
@@ -112,32 +117,74 @@
                     <article class="clase-card">
                         <div class="clase-icon">🧘</div>
                         <h3>Hatha Yoga</h3>
-                        <p>Posturas y respiración para conectar cuerpo y mente. Ideal para principiantes.</p>
+                        <p class="clase-desc">Posturas y respiración para conectar cuerpo y mente. Ideal para principiantes.</p>
+                        <div class="clase-meta">
+                            <span class="clase-duracion">⏱ 60 min</span>
+                            <span class="clase-nivel">🌱 Todos los niveles</span>
+                            <span class="clase-horario">🕐 Consultar</span>
+                        </div>
+                        <!-- Este botón SÍ abre WhatsApp con el mensaje personalizado -->
+                        <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20Hatha%20Yoga" target="_blank" class="btn btn-primary btn-small">Reservar</a>
                     </article>
+
                     <article class="clase-card">
                         <div class="clase-icon">🌀</div>
                         <h3>Vinyasa Flow</h3>
-                        <p>Movimiento fluido y dinámico. Fortalece y flexibiliza al ritmo de la respiración.</p>
+                        <p class="clase-desc">Movimiento fluido y dinámico. Fortalece y flexibiliza al ritmo de la respiración.</p>
+                        <div class="clase-meta">
+                            <span class="clase-duracion">⏱ 60 min</span>
+                            <span class="clase-nivel">🌱 Todos los niveles</span>
+                            <span class="clase-horario">🕐 Consultar</span>
+                        </div>
+                        <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20Vinyasa%20Flow" target="_blank" class="btn btn-primary btn-small">Reservar</a>
                     </article>
+
                     <article class="clase-card">
                         <div class="clase-icon">🌙</div>
                         <h3>Yin Yoga</h3>
-                        <p>Posturas pasivas y largas. Trabaja la fascia y la relajación profunda.</p>
+                        <p class="clase-desc">Posturas pasivas y largas. Trabaja la fascia y la relajación profunda.</p>
+                        <div class="clase-meta">
+                            <span class="clase-duracion">⏱ 75 min</span>
+                            <span class="clase-nivel">🌱 Todos los niveles</span>
+                            <span class="clase-horario">🕐 Consultar</span>
+                        </div>
+                        <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20Yin%20Yoga" target="_blank" class="btn btn-primary btn-small">Reservar</a>
                     </article>
+
                     <article class="clase-card">
                         <div class="clase-icon">💪</div>
                         <h3>Pilates</h3>
-                        <p>Fortalece el core, mejora la postura y la flexibilidad.</p>
+                        <p class="clase-desc">Fortalece el core, mejora la postura y la flexibilidad.</p>
+                        <div class="clase-meta">
+                            <span class="clase-duracion">⏱ 55 min</span>
+                            <span class="clase-nivel">🌱 Todos los niveles</span>
+                            <span class="clase-horario">🕐 Consultar</span>
+                        </div>
+                        <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20Pilates" target="_blank" class="btn btn-primary btn-small">Reservar</a>
                     </article>
+
                     <article class="clase-card">
                         <div class="clase-icon">🩰</div>
                         <h3>Barre</h3>
-                        <p>La técnica que mezcla ballet, yoga y pilates para tonificar y fortalecer.</p>
+                        <p class="clase-desc">La técnica que mezcla ballet, yoga y pilates para tonificar y fortalecer.</p>
+                        <div class="clase-meta">
+                            <span class="clase-duracion">⏱ 60 min</span>
+                            <span class="clase-nivel">🌱 Todos los niveles</span>
+                            <span class="clase-horario">🕐 Consultar</span>
+                        </div>
+                        <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20Barre" target="_blank" class="btn btn-primary btn-small">Reservar</a>
                     </article>
+
                     <article class="clase-card">
                         <div class="clase-icon">✨</div>
                         <h3>Tratamientos faciales y corporales</h3>
-                        <p>Un espacio para el cuidado personal. Relájate y disfruta de un momento para ti.</p>
+                        <p class="clase-desc">Un espacio para el cuidado personal. Relájate y disfruta de un momento para ti.</p>
+                        <div class="clase-meta">
+                            <span class="clase-duracion">⏱ 60–90 min</span>
+                            <span class="clase-nivel">🌸 Cita previa</span>
+                            <span class="clase-horario">🕐 Consultar</span>
+                        </div>
+                        <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20un%20tratamiento" target="_blank" class="btn btn-primary btn-small">Reservar</a>
                     </article>
                 </div>
             </div>
@@ -231,7 +278,8 @@
                         <p><i class="fas fa-phone contacto-icon"></i> <a href="tel:684680902">684 68 09 02</a></p>
                         <p><i class="fas fa-envelope contacto-icon"></i> <a href="mailto:hola@spaciocero.es">hola@spaciocero.es</a></p>
                         <p><i class="fas fa-clock contacto-icon"></i> L-J 8:00 – 14:00 · 17:00 – 21:00</p>
-                        <a href="https://wa.me/34684680902?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20una%20clase%20en%20Spaciocero" target="_blank" class="btn btn-primary" style="margin-top:1.5rem;">Reserva tu clase</a>
+                        <!-- Botón de contacto ahora lleva a #clases -->
+                        <a href="#clases" class="btn btn-primary" style="margin-top:1.5rem;">Reserva tu clase</a>
                     </div>
                     <div class="contacto-mapa">
                         <iframe 
@@ -271,7 +319,7 @@
 
     </main>
 
-    <!-- FOOTER (MODIFICADO: AÑADIDOS ENLACES LEGALES) -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -304,12 +352,11 @@
                     <h4>Síguenos</h4>
                     <div class="footer-socials">
                         <a href="https://www.instagram.com/spaciocero/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <!-- Enlace de Facebook ELIMINADO -->
                     </div>
                 </div>
             </div>
 
-            <!-- NUEVA FILA DE ENLACES LEGALES -->
+            <!-- ENLACES LEGALES -->
             <div class="footer-legal">
                 <a href="./paginas-legales/politica-privacidad.html">Política de privacidad</a>
                 <span class="separator">·</span>
@@ -324,7 +371,7 @@
         </div>
     </footer>
 
-    <!-- BANNER DE COOKIES (CON BOTÓN RECHAZAR) - ENLACE ACTUALIZADO -->
+    <!-- BANNER DE COOKIES -->
     <div id="cookieBanner" class="cookie-banner" style="display: none;">
         <p>Usamos cookies para mejorar tu experiencia. Puedes aceptarlas o rechazarlas. 
             <a href="./paginas-legales/politica-cookies.html" target="_blank">Más información</a></p>
@@ -333,6 +380,11 @@
             <button id="acceptCookies" class="btn btn-primary btn-small">Aceptar</button>
         </div>
     </div>
+
+    <!-- BOTÓN FLOTANTE (ahora lleva a #clases) -->
+    <a href="#clases" class="whatsapp-float" aria-label="Ver clases">
+        <i class="fas fa-calendar-alt"></i>
+    </a>
 
     <!-- JAVASCRIPT -->
     <script src="./script.js"></script>

@@ -274,8 +274,29 @@ ul {
     margin-top: 1.2rem;
 }
 
+/* --- PLACEHOLDER DE FOTOS --- */
+.sobre-fotos-placeholder {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    background: #f5f7f6;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px dashed #d0d8d5;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.sobre-fotos-placeholder p {
+    color: #6b7a7f;
+    font-size: 0.95rem;
+    margin: 0;
+}
+.sobre-fotos-placeholder strong {
+    color: #1a1a1a;
+}
+
 /* ============================================
-   CLASES
+   CLASES (MEJORADA)
    ============================================ */
 .clases-grid {
     display: grid;
@@ -292,6 +313,9 @@ ul {
     border: 1px solid #f0f0f0;
     transition: all 0.25s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .clase-card:hover {
     transform: translateY(-6px);
@@ -311,10 +335,51 @@ ul {
     margin-bottom: 0.5rem;
     color: #1a1a1a;
 }
-.clase-card p {
+
+.clase-desc {
     color: #4a5a60;
     font-size: 0.95rem;
     line-height: 1.6;
+    margin-bottom: 0.8rem;
+    flex: 1;
+}
+
+.clase-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: #6b7a7f;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+.clase-meta span {
+    background: #f0f2f1;
+    padding: 0.2rem 0.8rem;
+    border-radius: 30px;
+    white-space: nowrap;
+}
+
+.btn-small {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.85rem;
+    background: #000;
+    color: #fff;
+    border-radius: 60px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+.btn-small:hover {
+    background: #222;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
 }
 
 /* ============================================
@@ -360,23 +425,29 @@ ul {
 .horario-estado {
     text-align: center;
     margin-top: 1.2rem;
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: #4a5a60;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
+    font-weight: 600;
 }
 
 .estado-indicador {
     display: inline-block;
-    width: 10px;
-    height: 10px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
     background: #22c55e;
 }
+.estado-indicador.abierto {
+    background: #22c55e;
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.4);
+}
 .estado-indicador.cerrado {
     background: #ef4444;
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
 }
 
 /* ============================================
@@ -807,6 +878,37 @@ ul {
 }
 
 /* ============================================
+   BOTÓN FLOTANTE WHATSAPP (solo móvil)
+   ============================================ */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    z-index: 999;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+}
+@media (min-width: 768px) {
+    .whatsapp-float {
+        display: none;
+    }
+}
+
+/* ============================================
    RESPONSIVE
    ============================================ */
 @media (max-width: 1024px) {
@@ -881,6 +983,11 @@ ul {
         min-width: 280px !important;
         max-width: 90vw !important;
     }
+
+    .clases-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -893,6 +1000,7 @@ ul {
     }
     .clases-grid {
         grid-template-columns: 1fr;
+        gap: 1.2rem;
     }
     .hero-buttons {
         flex-direction: column;
@@ -932,6 +1040,26 @@ ul {
     .dropdown-item {
         font-size: 0.85rem;
         padding: 0.65rem 1rem;
+    }
+
+    .whatsapp-float {
+        width: 56px;
+        height: 56px;
+        font-size: 1.8rem;
+        bottom: 16px;
+        right: 16px;
+    }
+
+    .clase-meta {
+        font-size: 0.75rem;
+        gap: 0.3rem;
+    }
+    .clase-meta span {
+        padding: 0.15rem 0.6rem;
+    }
+    .btn-small {
+        font-size: 0.75rem;
+        padding: 0.4rem 1.2rem;
     }
 }
 
