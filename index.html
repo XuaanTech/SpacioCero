@@ -550,7 +550,7 @@
 
     </main>
 
-    <!-- ================= FOOTER ================= -->
+    <!-- ================= FOOTER (sin la columna "Síguenos") ================= -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -579,12 +579,7 @@
                         <li>V-D: Cerrado</li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h4>Síguenos</h4>
-                    <div class="footer-socials">
-                        <a href="https://www.instagram.com/spaciocero/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
+                <!-- Eliminada la columna "Síguenos" porque ahora están los botones flotantes -->
             </div>
 
             <div class="footer-legal">
@@ -611,7 +606,7 @@
         </div>
     </div>
 
-    <!-- ================= MODAL "MÁS INFO" (NUEVO) ================= -->
+    <!-- ================= MODAL "MÁS INFO" ================= -->
     <div id="modalInfo" class="modal-overlay" style="display: none;">
         <div class="modal-container">
             <button class="modal-close" id="modalClose" aria-label="Cerrar">&times;</button>
@@ -623,11 +618,16 @@
         </div>
     </div>
 
-    <!-- ================= BOTÓN FLOTANTE WHATSAPP ================= -->
-    <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20una%20clase" target="_blank" class="whatsapp-float" aria-label="Reservar por WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
+    <!-- ================= BOTONES FLOTANTES (WhatsApp + Instagram) ================= -->
+    <div class="floating-buttons">
+        <a href="https://www.instagram.com/spaciocero/" target="_blank" class="float-btn instagram-btn" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20una%20clase" target="_blank" class="float-btn whatsapp-btn" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    
     <!-- ================= JAVASCRIPT ================= -->
     <script src="./script.js"></script>
 

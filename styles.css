@@ -1030,7 +1030,7 @@ ul {
 }
 
 /* ============================================
-   FOOTER
+   FOOTER (actualizado a 3 columnas)
    ============================================ */
 .footer {
     background: #fafcfb;
@@ -1041,7 +1041,7 @@ ul {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr; /* Cambiado de 4 a 3 columnas */
     gap: 2.5rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid #eaeaea;
@@ -1103,6 +1103,7 @@ ul {
     color: #000;
 }
 
+/* Ya no necesitamos .footer-socials, pero lo mantenemos por si acaso */
 .footer-socials {
     display: flex;
     gap: 1rem;
@@ -1177,34 +1178,67 @@ ul {
 }
 
 /* ============================================
-   BOTÓN FLOTANTE WHATSAPP
+   BOTONES FLOTANTES (WhatsApp + Instagram)
    ============================================ */
-.whatsapp-float {
+.floating-buttons {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366;
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 999;
+}
+
+.float-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-    z-index: 999;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 28px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
     text-decoration: none;
-    flex-shrink: 0;
+    border: none;
+    cursor: pointer;
 }
-.whatsapp-float:hover {
+
+.float-btn:hover {
     transform: scale(1.1);
-    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
 }
-@media (min-width: 768px) {
-    .whatsapp-float {
-        display: none;
+
+/* Botón WhatsApp */
+.whatsapp-btn {
+    background: #25D366;
+}
+.whatsapp-btn:hover {
+    background: #1da851;
+}
+
+/* Botón Instagram */
+.instagram-btn {
+    background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+.instagram-btn:hover {
+    opacity: 0.9;
+    transform: scale(1.1);
+}
+
+/* Ajuste para móviles muy pequeños */
+@media (max-width: 480px) {
+    .floating-buttons {
+        bottom: 16px;
+        right: 16px;
+        gap: 10px;
+    }
+    .float-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
     }
 }
 
@@ -1340,7 +1374,7 @@ ul {
 }
 
 /* ============================================
-   MODAL "MÁS INFO" (NUEVO)
+   MODAL "MÁS INFO"
    ============================================ */
 .modal-overlay {
     position: fixed;
@@ -1496,7 +1530,7 @@ ul {
     }
 
     .footer-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr; /* En tablets se convierte en 2 columnas */
         gap: 2rem;
     }
     .footer-col:first-child {
@@ -1565,7 +1599,7 @@ ul {
     }
 
     .footer-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* En móvil pasa a 1 columna */
         gap: 1.5rem;
     }
     .footer-col:first-child {
