@@ -2,7 +2,7 @@
  * Spaciocero - Script principal
  * Funcionalidad: menú hamburguesa, dropdown compartir, acordeón FAQ,
  * estado de apertura dinámico, año dinámico, banner de cookies,
- * y animaciones fade-in al hacer scroll.
+ * animaciones fade-in y modal "Más info".
  */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // =============================================
-    // 8. ANIMACIONES FADE-IN AL HACER SCROLL (nuevo)
+    // 8. ANIMACIONES FADE-IN AL HACER SCROLL
     // =============================================
     const fadeElements = document.querySelectorAll('.section, .clase-card, .equipo-card, .ideal-item, .galeria-item, .primera-clase-content, .yoga-local-content');
 
@@ -249,13 +249,66 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // =============================================
-    // 9. BOTONES "MÁS INFO" DE CLASES (demo)
+    // 9. MODAL "MÁS INFO" DE CLASES (NUEVO)
     // =============================================
+    const modalOverlay = document.getElementById('modalInfo');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalText = document.getElementById('modalText');
+    const modalClose = document.getElementById('modalClose');
+    const modalAction = document.getElementById('modalAction');
+
+    // Función para abrir el modal
+    function abrirModal(clase) {
+        // Personalizar el mensaje según la clase
+        let nombreClase = clase.charAt(0).toUpperCase() + clase.slice(1);
+        const nombres = {
+            'hatha': 'Hatha Yoga',
+            'vinyasa': 'Vinyasa Flow',
+            'yin': 'Yin Yoga',
+            'pilates': 'Pilates',
+            'barre': 'Barre',
+            'tratamiento': 'Tratamiento'
+        };
+        nombreClase = nombres[clase] || nombreClase;
+
+        modalTitle.textContent = `🧘 ${nombreClase}`;
+        modalText.textContent = `Información detallada de ${nombreClase} (próximamente). Puedes reservar directamente por WhatsApp.`;
+        // Configurar el botón de acción para que abra WhatsApp con el mensaje adecuado
+        const mensajeWhatsApp = encodeURIComponent(`Hola, me gustaría reservar ${nombreClase}`);
+        modalAction.href = `https://wa.me/34656167226?text=${mensajeWhatsApp}`;
+        modalAction.target = '_blank';
+        modalOverlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Evita scroll
+    }
+
+    // Función para cerrar el modal
+    function cerrarModal() {
+        modalOverlay.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    // Evento para cada botón "Más info"
     document.querySelectorAll('.btn-info').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const clase = this.dataset.clase;
-            alert(`Información detallada de ${clase} (próximamente). Puedes reservar directamente por WhatsApp.`);
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const clase = this.dataset.clase || 'clase';
+            abrirModal(clase);
         });
+    });
+
+    // Cerrar modal al hacer clic en la X
+    modalClose.addEventListener('click', cerrarModal);
+
+    // Cerrar modal al hacer clic fuera del contenido (en el overlay)
+    modalOverlay.addEventListener('click', function(e) {
+        if (e.target === modalOverlay) cerrarModal();
+    });
+
+    // Cerrar modal con tecla ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modalOverlay.style.display === 'flex') {
+            cerrarModal();
+        }
     });
 
 });
