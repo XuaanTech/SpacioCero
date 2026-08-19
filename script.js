@@ -1,7 +1,8 @@
 /**
  * Spaciocero - Script principal
  * Funcionalidad: menú hamburguesa, dropdown compartir, acordeón FAQ,
- * estado de apertura dinámico, año dinámico y banner de cookies (con Aceptar/Rechazar).
+ * estado de apertura dinámico, año dinámico, banner de cookies,
+ * y animaciones fade-in al hacer scroll.
  */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -203,14 +204,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // =============================================
-    // 7. BANNER DE COOKIES (CON ACEPTAR Y RECHAZAR)
+    // 7. BANNER DE COOKIES
     // =============================================
     const cookieBanner = document.getElementById('cookieBanner');
     const acceptBtn = document.getElementById('acceptCookies');
     const rejectBtn = document.getElementById('rejectCookies');
 
     if (cookieBanner && acceptBtn && rejectBtn) {
-        // Comprobar si ya se ha tomado una decisión
         const cookiePreference = localStorage.getItem('cookiesPreference');
         if (!cookiePreference) {
             cookieBanner.style.display = 'flex';
@@ -219,14 +219,43 @@ document.addEventListener('DOMContentLoaded', function () {
         acceptBtn.addEventListener('click', function() {
             localStorage.setItem('cookiesPreference', 'accepted');
             cookieBanner.style.display = 'none';
-            // Aquí podrías cargar scripts de terceros si los hubiera
         });
 
         rejectBtn.addEventListener('click', function() {
             localStorage.setItem('cookiesPreference', 'rejected');
             cookieBanner.style.display = 'none';
-            // Si quisieras, podrías deshabilitar cookies de terceros
         });
     }
+
+    // =============================================
+    // 8. ANIMACIONES FADE-IN AL HACER SCROLL (nuevo)
+    // =============================================
+    const fadeElements = document.querySelectorAll('.section, .clase-card, .equipo-card, .ideal-item, .galeria-item, .primera-clase-content, .yoga-local-content');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    fadeElements.forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+    });
+
+    // =============================================
+    // 9. BOTONES "MÁS INFO" DE CLASES (demo)
+    // =============================================
+    document.querySelectorAll('.btn-info').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const clase = this.dataset.clase;
+            alert(`Información detallada de ${clase} (próximamente). Puedes reservar directamente por WhatsApp.`);
+        });
+    });
 
 });

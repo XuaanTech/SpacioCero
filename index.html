@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spaciocero · Yoga y Bienestar en Villaviciosa</title>
-    <meta name="description" content="Centro de yoga y pilates en Villaviciosa. Clases para todos los niveles. Relajación, flexibilidad y bienestar. ¡Ven a conocernos!" />
+    <title>Spaciocero · Yoga y Bienestar en Villaviciosa | Centro de Yoga y Pilates</title>
+    <meta name="description" content="Centro de yoga y pilates en Villaviciosa, Asturias. Clases de Hatha, Vinyasa, Yin, Pilates y Barre para todos los niveles. Relajación, flexibilidad y bienestar. ¡Reserva tu clase por WhatsApp!" />
     <link rel="icon" type="image/webp" href="./spaciocero_logo2_retocado-circle.webp" />
     <link rel="icon" type="image/png" href="./spaciocero_logo2_retocado-circle.png" sizes="any" />
     <link rel="canonical" href="https://spaciocero.pages.dev/" />
@@ -37,11 +37,13 @@
             <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
                 <span></span><span></span><span></span>
             </button>
-            <nav class="nav" id="nav">
+            <nav class="nav" id="nav" aria-label="Navegación principal">
                 <ul class="nav-links">
-                    <li><a href="#inicio">Inicio</a></li>
+                    <!-- Eliminado "Inicio" para que el logo cumpla esa función -->
                     <li><a href="#sobre">Sobre nosotros</a></li>
                     <li><a href="#clases">Clases</a></li>
+                    <li><a href="#actividad-ideal">¿Qué actividad es para mí?</a></li>
+                    <li><a href="#equipo">Equipo</a></li>
                     <li><a href="#horarios">Horarios</a></li>
                     <li><a href="#opiniones">Opiniones</a></li>
                     <li><a href="#faq">FAQ</a></li>
@@ -53,7 +55,7 @@
 
     <main>
 
-        <!-- HERO -->
+        <!-- ================= HERO ================= -->
         <section id="inicio" class="hero">
             <div class="container hero-inner">
                 <div class="hero-content">
@@ -63,9 +65,9 @@
                         Un centro de yoga donde vecinos y visitantes encuentran tranquilidad en medio del bullicio del centro.
                     </p>
                     <div class="hero-buttons">
-                        <!-- Botón que ahora lleva a la sección de clases -->
-                        <a href="#clases" class="btn btn-primary">Reserva tu clase</a>
-                        <a href="#clases" class="btn btn-outline">Descubre más</a>
+                        <!-- Botón principal: reserva directa por WhatsApp -->
+                        <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20una%20clase%20en%20Spaciocero" target="_blank" class="btn btn-primary">Reserva por WhatsApp</a>
+                        <a href="#clases" class="btn btn-outline">Descubre nuestras clases</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -74,7 +76,7 @@
             </div>
         </section>
 
-        <!-- SOBRE NOSOTROS -->
+        <!-- ================= SOBRE NOSOTROS (mejorado con galería placeholder) ================= -->
         <section id="sobre" class="section">
             <div class="container">
                 <h2 class="section-title">Sobre <strong>Spaciocero</strong></h2>
@@ -100,97 +102,246 @@
                     </p>
                 </div>
 
-                <!-- PLACEHOLDER DE FOTOS -->
-                <div class="sobre-fotos-placeholder">
-                    <p>
-                        📸 <strong>Aquí irán las fotos reales del centro, las clases y el equipo</strong>
-                    </p>
+                <!-- GALERÍA DE FOTOS (placeholder preparado para imágenes reales) -->
+                <div class="galeria-fotos">
+                    <div class="galeria-grid">
+                        <div class="galeria-item placeholder" data-label="Sala de yoga">
+                            <div class="placeholder-content">
+                                <i class="fas fa-camera"></i>
+                                <span>Foto del centro</span>
+                            </div>
+                        </div>
+                        <div class="galeria-item placeholder" data-label="Clase de yoga">
+                            <div class="placeholder-content">
+                                <i class="fas fa-camera"></i>
+                                <span>Clase en acción</span>
+                            </div>
+                        </div>
+                        <div class="galeria-item placeholder" data-label="Espacio de relax">
+                            <div class="placeholder-content">
+                                <i class="fas fa-camera"></i>
+                                <span>Zona de relax</span>
+                            </div>
+                        </div>
+                        <div class="galeria-item placeholder" data-label="Equipo">
+                            <div class="placeholder-content">
+                                <i class="fas fa-camera"></i>
+                                <span>Nuestro equipo</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="galeria-nota">📸 <strong>Aquí irán las fotos reales del centro, las clases y el equipo</strong></p>
                 </div>
             </div>
         </section>
 
-        <!-- CLASES (MEJORADA) -->
+        <!-- ================= CLASES (ampliadas con más detalles) ================= -->
         <section id="clases" class="section">
             <div class="container">
                 <h2 class="section-title">Nuestras <strong>clases y servicios</strong></h2>
                 <div class="clases-grid">
+                    <!-- Hatha Yoga -->
                     <article class="clase-card">
                         <div class="clase-icon">🧘</div>
                         <h3>Hatha Yoga</h3>
                         <p class="clase-desc">Posturas y respiración para conectar cuerpo y mente. Ideal para principiantes.</p>
+                        <div class="clase-detalles">
+                            <span><strong>Duración:</strong> 60 min</span>
+                            <span><strong>Nivel:</strong> Principiantes y avanzados</span>
+                            <span><strong>Recomendado para:</strong> Buscar equilibrio y relajación</span>
+                        </div>
                         <div class="clase-meta">
                             <span class="clase-duracion">⏱ 60 min</span>
                             <span class="clase-nivel">🌱 Todos los niveles</span>
                             <span class="clase-horario">🕐 Consultar</span>
                         </div>
-                        <!-- Este botón SÍ abre WhatsApp con el mensaje personalizado -->
-                        <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20Hatha%20Yoga" target="_blank" class="btn btn-primary btn-small">Reservar</a>
+                        <div class="clase-acciones">
+                            <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20Hatha%20Yoga" target="_blank" class="btn btn-primary btn-small">Reservar</a>
+                            <button class="btn btn-outline btn-small btn-info" data-clase="hatha">Más info</button>
+                        </div>
                     </article>
 
+                    <!-- Vinyasa Flow -->
                     <article class="clase-card">
                         <div class="clase-icon">🌀</div>
                         <h3>Vinyasa Flow</h3>
                         <p class="clase-desc">Movimiento fluido y dinámico. Fortalece y flexibiliza al ritmo de la respiración.</p>
+                        <div class="clase-detalles">
+                            <span><strong>Duración:</strong> 60 min</span>
+                            <span><strong>Nivel:</strong> Intermedio</span>
+                            <span><strong>Recomendado para:</strong> Buscar energía y tonificación</span>
+                        </div>
                         <div class="clase-meta">
                             <span class="clase-duracion">⏱ 60 min</span>
                             <span class="clase-nivel">🌱 Todos los niveles</span>
                             <span class="clase-horario">🕐 Consultar</span>
                         </div>
-                        <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20Vinyasa%20Flow" target="_blank" class="btn btn-primary btn-small">Reservar</a>
+                        <div class="clase-acciones">
+                            <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20Vinyasa%20Flow" target="_blank" class="btn btn-primary btn-small">Reservar</a>
+                            <button class="btn btn-outline btn-small btn-info" data-clase="vinyasa">Más info</button>
+                        </div>
                     </article>
 
+                    <!-- Yin Yoga -->
                     <article class="clase-card">
                         <div class="clase-icon">🌙</div>
                         <h3>Yin Yoga</h3>
                         <p class="clase-desc">Posturas pasivas y largas. Trabaja la fascia y la relajación profunda.</p>
+                        <div class="clase-detalles">
+                            <span><strong>Duración:</strong> 75 min</span>
+                            <span><strong>Nivel:</strong> Todos los niveles</span>
+                            <span><strong>Recomendado para:</strong> Relajación y estiramientos profundos</span>
+                        </div>
                         <div class="clase-meta">
                             <span class="clase-duracion">⏱ 75 min</span>
                             <span class="clase-nivel">🌱 Todos los niveles</span>
                             <span class="clase-horario">🕐 Consultar</span>
                         </div>
-                        <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20Yin%20Yoga" target="_blank" class="btn btn-primary btn-small">Reservar</a>
+                        <div class="clase-acciones">
+                            <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20Yin%20Yoga" target="_blank" class="btn btn-primary btn-small">Reservar</a>
+                            <button class="btn btn-outline btn-small btn-info" data-clase="yin">Más info</button>
+                        </div>
                     </article>
 
+                    <!-- Pilates -->
                     <article class="clase-card">
                         <div class="clase-icon">💪</div>
                         <h3>Pilates</h3>
                         <p class="clase-desc">Fortalece el core, mejora la postura y la flexibilidad.</p>
+                        <div class="clase-detalles">
+                            <span><strong>Duración:</strong> 55 min</span>
+                            <span><strong>Nivel:</strong> Principiantes y avanzados</span>
+                            <span><strong>Recomendado para:</strong> Fortalecimiento y alineación</span>
+                        </div>
                         <div class="clase-meta">
                             <span class="clase-duracion">⏱ 55 min</span>
                             <span class="clase-nivel">🌱 Todos los niveles</span>
                             <span class="clase-horario">🕐 Consultar</span>
                         </div>
-                        <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20Pilates" target="_blank" class="btn btn-primary btn-small">Reservar</a>
+                        <div class="clase-acciones">
+                            <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20Pilates" target="_blank" class="btn btn-primary btn-small">Reservar</a>
+                            <button class="btn btn-outline btn-small btn-info" data-clase="pilates">Más info</button>
+                        </div>
                     </article>
 
+                    <!-- Barre -->
                     <article class="clase-card">
                         <div class="clase-icon">🩰</div>
                         <h3>Barre</h3>
                         <p class="clase-desc">La técnica que mezcla ballet, yoga y pilates para tonificar y fortalecer.</p>
+                        <div class="clase-detalles">
+                            <span><strong>Duración:</strong> 60 min</span>
+                            <span><strong>Nivel:</strong> Intermedio</span>
+                            <span><strong>Recomendado para:</strong> Tonificación y resistencia</span>
+                        </div>
                         <div class="clase-meta">
                             <span class="clase-duracion">⏱ 60 min</span>
                             <span class="clase-nivel">🌱 Todos los niveles</span>
                             <span class="clase-horario">🕐 Consultar</span>
                         </div>
-                        <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20Barre" target="_blank" class="btn btn-primary btn-small">Reservar</a>
+                        <div class="clase-acciones">
+                            <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20Barre" target="_blank" class="btn btn-primary btn-small">Reservar</a>
+                            <button class="btn btn-outline btn-small btn-info" data-clase="barre">Más info</button>
+                        </div>
                     </article>
 
+                    <!-- Tratamientos -->
                     <article class="clase-card">
                         <div class="clase-icon">✨</div>
                         <h3>Tratamientos faciales y corporales</h3>
                         <p class="clase-desc">Un espacio para el cuidado personal. Relájate y disfruta de un momento para ti.</p>
+                        <div class="clase-detalles">
+                            <span><strong>Duración:</strong> 60–90 min</span>
+                            <span><strong>Nivel:</strong> Cita previa</span>
+                            <span><strong>Recomendado para:</strong> Bienestar y autocuidado</span>
+                        </div>
                         <div class="clase-meta">
                             <span class="clase-duracion">⏱ 60–90 min</span>
                             <span class="clase-nivel">🌸 Cita previa</span>
                             <span class="clase-horario">🕐 Consultar</span>
                         </div>
-                        <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20un%20tratamiento" target="_blank" class="btn btn-primary btn-small">Reservar</a>
+                        <div class="clase-acciones">
+                            <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20un%20tratamiento" target="_blank" class="btn btn-primary btn-small">Reservar</a>
+                            <button class="btn btn-outline btn-small btn-info" data-clase="tratamiento">Más info</button>
+                        </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- HORARIOS -->
+        <!-- ================= ¿QUÉ ACTIVIDAD ES PARA MÍ? (nuevo) ================= -->
+        <section id="actividad-ideal" class="section">
+            <div class="container">
+                <h2 class="section-title">¿Qué actividad es <strong>para mí</strong>?</h2>
+                <p class="subtitulo">Te ayudamos a elegir la clase que mejor se adapta a ti</p>
+                <div class="ideal-grid">
+                    <div class="ideal-item">
+                        <i class="fas fa-spa"></i>
+                        <h3>Quiero relajarme</h3>
+                        <p>→ <strong>Yin Yoga</strong> o <strong>Hatha Yoga</strong></p>
+                        <small>Posturas suaves y respiración consciente</small>
+                    </div>
+                    <div class="ideal-item">
+                        <i class="fas fa-running"></i>
+                        <h3>Quiero un reto dinámico</h3>
+                        <p>→ <strong>Vinyasa Flow</strong></p>
+                        <small>Movimiento fluido y energía constante</small>
+                    </div>
+                    <div class="ideal-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <h3>Quiero tonificar y fortalecer</h3>
+                        <p>→ <strong>Pilates</strong> o <strong>Barre</strong></p>
+                        <small>Control muscular y definición</small>
+                    </div>
+                    <div class="ideal-item">
+                        <i class="fas fa-hand-sparkles"></i>
+                        <h3>Quiero un momento de autocuidado</h3>
+                        <p>→ <strong>Tratamientos corporales</strong></p>
+                        <small>Relajación y cuidado personal</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= EQUIPO (nuevo) ================= -->
+        <section id="equipo" class="section">
+            <div class="container">
+                <h2 class="section-title">Conoce al <strong>equipo</strong></h2>
+                <p class="subtitulo">Personas reales detrás de Spaciocero</p>
+                <div class="equipo-grid">
+                    <!-- Miembro 1 -->
+                    <div class="equipo-card placeholder">
+                        <div class="equipo-foto placeholder-foto">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3>Instructor/a 1</h3>
+                        <p class="equipo-rol">Yoga y Pilates</p>
+                        <p class="equipo-desc">Breve descripción y experiencia. (Añadir datos reales cuando estén disponibles)</p>
+                    </div>
+                    <!-- Miembro 2 -->
+                    <div class="equipo-card placeholder">
+                        <div class="equipo-foto placeholder-foto">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3>Instructor/a 2</h3>
+                        <p class="equipo-rol">Vinyasa y Barre</p>
+                        <p class="equipo-desc">Breve descripción y experiencia. (Añadir datos reales cuando estén disponibles)</p>
+                    </div>
+                    <!-- Miembro 3 -->
+                    <div class="equipo-card placeholder">
+                        <div class="equipo-foto placeholder-foto">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3>Terapeuta</h3>
+                        <p class="equipo-rol">Tratamientos y bienestar</p>
+                        <p class="equipo-desc">Breve descripción y experiencia. (Añadir datos reales cuando estén disponibles)</p>
+                    </div>
+                </div>
+                <p class="equipo-nota">📸 <strong>Próximamente: fotos y perfiles completos de nuestro equipo</strong></p>
+            </div>
+        </section>
+
+        <!-- ================= HORARIOS (sin cambios) ================= -->
         <section id="horarios" class="section">
             <div class="container">
                 <h2 class="section-title"><strong>Horarios</strong> de apertura</h2>
@@ -220,23 +371,31 @@
             </div>
         </section>
 
-        <!-- OPINIONES (con GR Widget centrado) -->
+        <!-- ================= OPINIONES (con widget + estructura preparada) ================= -->
         <section id="opiniones" class="section">
             <div class="container">
                 <h2 class="section-title">Lo que dicen de <strong>Spaciocero</strong></h2>
+                <!-- Widget GR -->
                 <script src="https://grwidget.com/v1/grwidget.js" async defer></script>
                 <div class="grwidget-embed" data-grwidget-key="C6u9eK5mrOUkaSLZZCuBZKRG"></div>
                 <div class="opiniones-footer">
                     <p>⭐ Valoración media: <strong>5.0</strong> · Basada en 9 opiniones de Google</p>
+                    <a href="https://www.google.com/search?q=spaciocero" target="_blank" class="btn btn-outline btn-small">Ver opiniones en Google</a>
+                </div>
+                <!-- Estructura preparada para reseñas reales (datos reales no inventados) -->
+                <div class="reseñas-preparadas" style="display:none;">
+                    <!-- Aquí se pueden añadir reseñas reales cuando estén disponibles -->
+                    <p>Próximamente: reseñas de nuestros clientes</p>
                 </div>
             </div>
         </section>
 
-        <!-- FAQ -->
+        <!-- ================= FAQ (ampliada) ================= -->
         <section id="faq" class="section">
             <div class="container">
                 <h2 class="section-title">Preguntas <strong>frecuentes</strong></h2>
                 <div class="faq-list">
+                    <!-- Pregunta 1 -->
                     <div class="faq-item">
                         <button class="faq-pregunta" aria-expanded="false">
                             <span>¿Dónde está Spaciocero?</span>
@@ -246,6 +405,7 @@
                             <p>Estamos en la <strong>C. Alfonso X el Sabio, 3, 33300 Villaviciosa, Asturias</strong>, a dos pasos de la plaza del Ayuntamiento.</p>
                         </div>
                     </div>
+                    <!-- Pregunta 2 -->
                     <div class="faq-item">
                         <button class="faq-pregunta" aria-expanded="false">
                             <span>¿Qué horario tiene Spaciocero?</span>
@@ -255,20 +415,108 @@
                             <p>Nuestro horario es: <strong>Lunes a Jueves de 8:00 a 21:00</strong> (los jueves abrimos a las 9:00). Viernes, sábado y domingo cerrado.</p>
                         </div>
                     </div>
+                    <!-- Pregunta 3 -->
                     <div class="faq-item">
                         <button class="faq-pregunta" aria-expanded="false">
-                            <span>¿Qué valoración tiene Spaciocero?</span>
+                            <span>¿Necesito experiencia previa para empezar?</span>
                             <i class="fas fa-chevron-down faq-icon"></i>
                         </button>
                         <div class="faq-respuesta">
-                            <p>Tenemos una valoración media de <strong>5.0 estrellas</strong> basada en 9 opiniones de Google. Nuestros clientes destacan la atención personalizada y el ambiente relajado.</p>
+                            <p>En absoluto. Todas nuestras clases están diseñadas para adaptarse a <strong>todos los niveles</strong>, desde principiantes hasta avanzados. Nuestros instructores te guiarán en todo momento.</p>
+                        </div>
+                    </div>
+                    <!-- Pregunta 4 -->
+                    <div class="faq-item">
+                        <button class="faq-pregunta" aria-expanded="false">
+                            <span>¿Qué debo llevar a mi primera clase?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-respuesta">
+                            <p>Ropa cómoda que permita el movimiento (mallas, leggings, camiseta holgada). Para yoga, no necesitas calzado, se practica descalzo. Para pilates, puedes usar calcetines antideslizantes. También trae una botella de agua.</p>
+                        </div>
+                    </div>
+                    <!-- Pregunta 5 -->
+                    <div class="faq-item">
+                        <button class="faq-pregunta" aria-expanded="false">
+                            <span>¿Qué diferencia hay entre Hatha y Vinyasa?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-respuesta">
+                            <p><strong>Hatha Yoga</strong> es más suave y se centra en posturas estáticas y respiración. <strong>Vinyasa Flow</strong> es más dinámico, con secuencias fluidas que sincronizan movimiento y respiración.</p>
+                        </div>
+                    </div>
+                    <!-- Pregunta 6 -->
+                    <div class="faq-item">
+                        <button class="faq-pregunta" aria-expanded="false">
+                            <span>¿Yoga o Pilates: cuál elegir?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-respuesta">
+                            <p><strong>Yoga</strong> trabaja flexibilidad, equilibrio y conexión mente-cuerpo. <strong>Pilates</strong> se enfoca en fortalecer el core, mejorar la postura y alinear el cuerpo. Ambos se complementan perfectamente.</p>
+                        </div>
+                    </div>
+                    <!-- Pregunta 7 -->
+                    <div class="faq-item">
+                        <button class="faq-pregunta" aria-expanded="false">
+                            <span>¿Cómo puedo reservar una clase?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-respuesta">
+                            <p>Reserva fácilmente a través de <strong>WhatsApp</strong> al <a href="https://wa.me/34656167226">656 167 226</a> o usando el botón de reserva en cada clase. También puedes llamarnos al <a href="tel:684680902">684 68 09 02</a>.</p>
+                        </div>
+                    </div>
+                    <!-- Pregunta 8 -->
+                    <div class="faq-item">
+                        <button class="faq-pregunta" aria-expanded="false">
+                            <span>¿Hay algún descuento para nuevos alumnos?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-respuesta">
+                            <p>Consulta nuestras ofertas de bienvenida. <strong>Pregúntanos por WhatsApp</strong> y te informaremos de todas las promociones disponibles.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CONTACTO -->
+        <!-- ================= TU PRIMERA CLASE (nuevo) ================= -->
+        <section id="primera-clase" class="section">
+            <div class="container">
+                <h2 class="section-title">Tu <strong>primera clase</strong></h2>
+                <div class="primera-clase-content">
+                    <p>¿Es tu primera vez en Spaciocero? Te guiamos paso a paso:</p>
+                    <ol>
+                        <li><strong>Elige tu actividad</strong> – Consulta nuestra oferta de clases y elige la que más te llame la atención.</li>
+                        <li><strong>Reserva por WhatsApp</strong> – Envíanos un mensaje y confirma tu plaza.</li>
+                        <li><strong>Ven al centro</strong> – Estamos en la calle Alfonso X el Sabio, 3. Te recibiremos con una sonrisa.</li>
+                        <li><strong>Disfruta de tu primera experiencia</strong> – No necesitas experiencia, solo ganas de sentirte bien.</li>
+                    </ol>
+                    <p><strong>Consejos:</strong> Llega 10 minutos antes, trae ropa cómoda y una botella de agua. Nosotros ponemos las esterillas y todo el material.</p>
+                    <a href="https://wa.me/34656167226?text=Hola%2C%20es%20mi%20primera%20vez%20y%20quiero%20reservar" target="_blank" class="btn btn-primary">Reservar mi primera clase</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= YOGA EN VILLAVICIOSA (nuevo contenido SEO) ================= -->
+        <section id="yoga-villaviciosa" class="section">
+            <div class="container">
+                <h2 class="section-title">Yoga en <strong>Villaviciosa</strong></h2>
+                <div class="yoga-local-content">
+                    <p>Spaciocero es tu centro de referencia para practicar <strong>yoga en Villaviciosa</strong>. Ofrecemos una amplia variedad de estilos para que encuentres el que mejor se adapte a ti:</p>
+                    <ul>
+                        <li><strong>Hatha Yoga</strong> – Perfecto para iniciarse y conectar con la respiración.</li>
+                        <li><strong>Vinyasa Flow</strong> – Dinámico y energético, ideal para quienes buscan un reto físico.</li>
+                        <li><strong>Yin Yoga</strong> – Relajación profunda y estiramientos pasivos.</li>
+                        <li><strong>Pilates</strong> – Fortalecimiento y alineación postural.</li>
+                        <li><strong>Barre</strong> – Tonificación con influencias de ballet y pilates.</li>
+                    </ul>
+                    <p>Ubicados en el corazón de Villaviciosa, ofrecemos horarios flexibles para que puedas compaginar tu práctica con tu rutina diaria. <strong>Reserva tu clase hoy mismo</strong> y descubre el bienestar en Spaciocero.</p>
+                    <a href="#clases" class="btn btn-primary">Ver todas las clases</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CONTACTO (mejorado) ================= -->
         <section id="contacto" class="section">
             <div class="container">
                 <h2 class="section-title"><strong>Contacto</strong></h2>
@@ -278,8 +526,8 @@
                         <p><i class="fas fa-phone contacto-icon"></i> <a href="tel:684680902">684 68 09 02</a></p>
                         <p><i class="fas fa-envelope contacto-icon"></i> <a href="mailto:hola@spaciocero.es">hola@spaciocero.es</a></p>
                         <p><i class="fas fa-clock contacto-icon"></i> L-J 8:00 – 14:00 · 17:00 – 21:00</p>
-                        <!-- Botón de contacto ahora lleva a #clases -->
-                        <a href="#clases" class="btn btn-primary" style="margin-top:1.5rem;">Reserva tu clase</a>
+                        <!-- Botón directo a WhatsApp -->
+                        <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n" target="_blank" class="btn btn-primary" style="margin-top:1.5rem;">Reservar por WhatsApp</a>
                     </div>
                     <div class="contacto-mapa">
                         <iframe 
@@ -319,7 +567,7 @@
 
     </main>
 
-    <!-- FOOTER -->
+    <!-- ================= FOOTER (sin cambios) ================= -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -371,7 +619,7 @@
         </div>
     </footer>
 
-    <!-- BANNER DE COOKIES -->
+    <!-- ================= BANNER DE COOKIES ================= -->
     <div id="cookieBanner" class="cookie-banner" style="display: none;">
         <p>Usamos cookies para mejorar tu experiencia. Puedes aceptarlas o rechazarlas. 
             <a href="./paginas-legales/politica-cookies.html" target="_blank">Más información</a></p>
@@ -381,15 +629,15 @@
         </div>
     </div>
 
-    <!-- BOTÓN FLOTANTE (ahora lleva a #clases) -->
-    <a href="#clases" class="whatsapp-float" aria-label="Ver clases">
-        <i class="fas fa-calendar-alt"></i>
+    <!-- ================= BOTÓN FLOTANTE WHATSAPP (solo móvil) ================= -->
+    <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20una%20clase" target="_blank" class="whatsapp-float" aria-label="Reservar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- JAVASCRIPT -->
+    <!-- ================= JAVASCRIPT ================= -->
     <script src="./script.js"></script>
 
-    <!-- Datos estructurados JSON-LD -->
+    <!-- Datos estructurados JSON-LD (actualizados con más información) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -426,7 +674,8 @@
         "@type": "AggregateRating",
         "ratingValue": "5.0",
         "reviewCount": "9"
-      }
+      },
+      "priceRange": "€€"
     }
     </script>
 
@@ -440,7 +689,7 @@
           "name": "¿Dónde está Spaciocero?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Estamos en la C. Alfonso X el Sabio, 3, 33300 Villaviciosa, Asturias, a dos pasos de la plaza del Ayuntamiento."
+            "text": "Estamos en la C. Alfonso X el Sabio, 3, 33300 Villaviciosa, Asturias."
           }
         },
         {
@@ -448,15 +697,23 @@
           "name": "¿Qué horario tiene Spaciocero?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Nuestro horario es: Lunes a Jueves de 8:00 a 21:00 (los jueves abrimos a las 9:00). Viernes, sábado y domingo cerrado."
+            "text": "Lunes a Jueves de 8:00 a 21:00 (jueves 9:00). Viernes a domingo cerrado."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Qué valoración tiene Spaciocero?",
+          "name": "¿Necesito experiencia previa para empezar?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Tenemos una valoración media de 5.0 estrellas basada en 9 opiniones de Google. Nuestros clientes destacan la atención personalizada y el ambiente relajado."
+            "text": "No, todas nuestras clases están adaptadas a todos los niveles."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo puedo reservar una clase?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Puedes reservar por WhatsApp al 656 167 226 o llamando al 684 68 09 02."
           }
         }
       ]
