@@ -1,6 +1,6 @@
 /**
  * legal-script.js - Script para páginas legales
- * Funcionalidad: menú hamburguesa y año dinámico en footer.
+ * Funcionalidad: menú hamburguesa, año dinámico y carga de Font Awesome según consentimiento.
  */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -40,5 +40,23 @@ document.addEventListener('DOMContentLoaded', function () {
         const añoActual = new Date().getFullYear();
         footerYear.innerHTML = `&copy; ${añoActual} · Spaciocero`;
     }
+
+    // =============================================
+    // 3. CARGA DINÁMICA DE FONT AWESOME (solo si aceptado)
+    // =============================================
+    function loadFontAwesome() {
+        if (document.querySelector('link[href*="font-awesome"]')) return;
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css';
+        document.head.appendChild(link);
+    }
+
+    // Comprobar preferencia
+    var preference = localStorage.getItem('cookiesPreference');
+    if (preference === 'accepted') {
+        loadFontAwesome();
+    }
+    // Si es 'rejected' o no existe, no se carga
 
 });

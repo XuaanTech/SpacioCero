@@ -213,11 +213,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const container = document.getElementById('gr-widget-container');
         if (!container) return;
 
-        // Buscar el widget dentro del contenedor
         const widget = container.querySelector('.grwidget-embed');
         if (!widget) return;
 
-        // Aplicar estilos al contenedor principal del widget
         widget.style.display = 'flex';
         widget.style.flexDirection = 'column';
         widget.style.alignItems = 'center';
@@ -227,7 +225,6 @@ document.addEventListener('DOMContentLoaded', function () {
         widget.style.margin = '0 auto';
         widget.style.textAlign = 'center';
 
-        // Aplicar a todos los hijos del widget
         const allChildren = widget.querySelectorAll('*');
         allChildren.forEach(function(el) {
             el.style.marginLeft = 'auto';
@@ -238,7 +235,6 @@ document.addEventListener('DOMContentLoaded', function () {
             el.style.clear = 'both';
         });
 
-        // Si hay listas, forzamos también
         const lists = widget.querySelectorAll('ul, li');
         lists.forEach(function(el) {
             el.style.listStyle = 'none';
@@ -255,31 +251,25 @@ document.addEventListener('DOMContentLoaded', function () {
     function cargarGRWidget() {
         if (!grContainer) return;
         const key = grContainer.dataset.grwidgetKey;
-        // Eliminar la clase que da el fondo gris
         grContainer.classList.remove('third-party-placeholder');
         grContainer.innerHTML = `<div class="grwidget-embed" data-grwidget-key="${key}"></div>`;
 
-        // Cargar el script
         const script = document.createElement('script');
         script.src = 'https://grwidget.com/v1/grwidget.js';
         script.async = true;
         script.defer = true;
 
-        // Cuando el script termine de cargar, forzar el centrado
         script.onload = function() {
-            // Pequeño retraso para que el widget se renderice
             setTimeout(forzarCentradoGRWidget, 500);
         };
 
         document.body.appendChild(script);
 
-        // También observar cambios en el contenedor por si el script modifica el DOM después
         const observer = new MutationObserver(function(mutations) {
             const widget = grContainer.querySelector('.grwidget-embed');
             if (widget) {
-                // Si el widget aparece, forzamos el centrado
                 forzarCentradoGRWidget();
-                observer.disconnect(); // Dejamos de observar
+                observer.disconnect();
             }
         });
 
@@ -294,16 +284,27 @@ document.addEventListener('DOMContentLoaded', function () {
         mapContainer.innerHTML = `<iframe src="${mapUrl}" width="100%" height="220" style="border:0; border-radius:20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Spaciocero"></iframe>`;
     }
 
+    // === FUNCIÓN PARA CARGAR FONT AWESOME DINÁMICAMENTE ===
+    function loadFontAwesome() {
+        if (document.querySelector('link[href*="font-awesome"]')) return;
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css';
+        document.head.appendChild(link);
+    }
+
     function aceptarCookies() {
         localStorage.setItem('cookiesPreference', 'accepted');
         cookieBanner.style.display = 'none';
         cargarGoogleMaps();
         cargarGRWidget();
+        loadFontAwesome(); // <--- AÑADIDO
     }
 
     function rechazarCookies() {
         localStorage.setItem('cookiesPreference', 'rejected');
         cookieBanner.style.display = 'none';
+        // No cargar Font Awesome
     }
 
     function mostrarBanner() {
@@ -321,7 +322,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const cookiePreference = localStorage.getItem('cookiesPreference');
     if (cookiePreference === 'accepted') {
-        aceptarCookies();
+        // Ya aceptado, cargar todo
+        aceptarCookies(); // Esto cargará mapa, widget y Font Awesome
     } else if (cookiePreference === 'rejected') {
         rechazarCookies();
     } else {
@@ -346,7 +348,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // =============================================
     const fadeElements = document.querySelectorAll('.section, .clase-card, .equipo-card, .ideal-item, .galeria-item, .primera-clase-content, .yoga-local-content');
 
-    const observer = new IntersectionObserver((entries) => {
+    const observer2 = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
@@ -359,7 +361,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     fadeElements.forEach(el => {
         el.classList.add('fade-in');
-        observer.observe(el);
+        observer2.observe(el);
     });
 
     // =============================================
