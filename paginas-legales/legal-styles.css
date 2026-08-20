@@ -1,6 +1,16 @@
 /* ============================================
    RESET Y BASE (idéntico al principal)
    ============================================ */
+
+   /* === FUENTE AUTOALOJADA (Inter Variable) === */
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/InterVariable.woff2') format('woff2');
+    font-weight: 300 700;
+    font-style: normal;
+    font-display: swap;
+}
+
 *,
 *::before,
 *::after {
