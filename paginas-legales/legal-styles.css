@@ -379,6 +379,9 @@ ul {
     .footer-col:first-child {
         grid-column: span 2;
     }
+    .footer-col ul li {
+        font-size: 0.9rem;
+    }
 }
 @media (max-width: 480px) {
     .logo-img {
@@ -389,10 +392,31 @@ ul {
     }
     .footer-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1.8rem;
     }
     .footer-col:first-child {
         grid-column: span 1;
+    }
+    .footer-col ul li {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        font-size: 0.95rem;
+        word-break: break-word;
+    }
+    .footer-col ul li i {
+        flex-shrink: 0;
+        width: 1.2rem;
+        text-align: center;
+    }
+    .footer-desc {
+        max-width: 100%;
+    }
+    .footer-legal {
+        font-size: 0.8rem;
+    }
+    .footer-legal .separator {
+        margin: 0 0.4rem;
     }
     .section-title {
         font-size: 1.8rem;

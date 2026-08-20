@@ -1152,14 +1152,6 @@ ul {
 }
 .copiar-mensaje.visible {
     opacity: 1;
-
-/* Eliminar fondo y borde gris del mapa cuando ya está cargado */
-#google-map-container.third-party-placeholder {
-    background: none !important;
-    border: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-}
 }
 
 /* ============================================
@@ -1597,6 +1589,18 @@ ul {
 }
 
 /* ============================================
+   ELIMINAR CUADRADO GRIS DE GRWIDGET Y MAPA
+   ============================================ */
+#google-map-container.third-party-placeholder,
+#gr-widget-container.third-party-placeholder {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    min-height: auto !important;
+}
+
+/* ============================================
    RESPONSIVE PARA BLOQUEADORES
    ============================================ */
 @media (max-width: 768px) {
@@ -1615,17 +1619,6 @@ ul {
     #gr-widget-container .grwidget-embed {
         max-width: 100% !important;
     }
-}
-
-/* ============================================
-   ELIMINAR CUADRADO GRIS DE GRWIDGET
-   ============================================ */
-#gr-widget-container.third-party-placeholder {
-    background: transparent !important;
-    border: none !important;
-    padding: 0 !important;
-    margin: 0 auto !important;
-    min-height: auto !important;
 }
 
 /* ============================================

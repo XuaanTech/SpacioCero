@@ -255,6 +255,8 @@ document.addEventListener('DOMContentLoaded', function () {
     function cargarGRWidget() {
         if (!grContainer) return;
         const key = grContainer.dataset.grwidgetKey;
+        // Eliminar la clase que da el fondo gris
+        grContainer.classList.remove('third-party-placeholder');
         grContainer.innerHTML = `<div class="grwidget-embed" data-grwidget-key="${key}"></div>`;
 
         // Cargar el script
@@ -291,6 +293,7 @@ document.addEventListener('DOMContentLoaded', function () {
         mapContainer.classList.remove('third-party-placeholder');
         mapContainer.innerHTML = `<iframe src="${mapUrl}" width="100%" height="220" style="border:0; border-radius:20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Spaciocero"></iframe>`;
     }
+
     function aceptarCookies() {
         localStorage.setItem('cookiesPreference', 'accepted');
         cookieBanner.style.display = 'none';
