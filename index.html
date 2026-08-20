@@ -386,8 +386,10 @@
         <section id="opiniones" class="section">
             <div class="container">
                 <h2 class="section-title">Lo que dicen de <strong>Spaciocero</strong></h2>
-                <script src="https://grwidget.com/v1/grwidget.js" async defer></script>
-                <div class="grwidget-embed" data-grwidget-key="C6u9eK5mrOUkaSLZZCuBZKRG"></div>
+                <!-- Eliminada la carga automática del script, ahora se carga dinámicamente -->
+                <div id="gr-widget-container" class="third-party-placeholder" data-grwidget-key="C6u9eK5mrOUkaSLZZCuBZKRG">
+                    <p class="placeholder-text">🔒 Contenido de reseñas de Google bloqueado hasta que aceptes las cookies de terceros.</p>
+                </div>
                 <div class="opiniones-footer">
                     <p>⭐ Valoración media: <strong>5.0</strong> · Basada en 9 opiniones de Google</p>
                     <a href="https://www.google.com/search?q=spaciocero" target="_blank" class="btn btn-outline btn-small">Ver opiniones en Google</a>
@@ -529,16 +531,11 @@
                         <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n" target="_blank" class="btn btn-primary" style="margin-top:1.5rem;">Reservar por WhatsApp</a>
                     </div>
                     <div class="contacto-mapa">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2894.8833908297875!2d-5.4364549234641455!3d43.48390386336363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd366d06a86f21c9%3a0x9878264290576e03!2sspaciocero!5e0!3m2!1ses!2sus!4v1785161286812!5m2!1ses!2sus" 
-                            width="100%" 
-                            height="220" 
-                            style="border:0; border-radius:20px;" 
-                            allowfullscreen="" 
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                            title="Ubicación de Spaciocero">
-                        </iframe>
+                        <!-- Google Maps en placeholder -->
+                        <div id="google-map-container" class="third-party-placeholder" data-map-url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2894.8833908297875!2d-5.4364549234641455!3d43.48390386336363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd366d06a86f21c9%3a0x9878264290576e03!2sspaciocero!5e0!3m2!1ses!2sus!4v1785161286812!5m2!1ses!2sus">
+                            <p class="placeholder-text">🗺️ El mapa de Google está bloqueado hasta que aceptes las cookies de terceros.</p>
+                            <button type="button" id="load-map-btn" class="btn btn-outline btn-small">Mostrar mapa</button>
+                        </div>
                         <div class="mapa-acciones">
                             <a href="https://www.google.com/maps/dir/?api=1&destination=C.+Alfonso+X+el+Sabio,+3,+33300+Villaviciosa,+Asturias,+España" 
                                target="_blank" 
@@ -579,10 +576,14 @@
                         <span class="logo-footer-text">Spacio<span>cero</span></span>
                     </a>
                     <p class="footer-desc">
-                        Centro de yoga, pilates y bienestar en Villaviciosa (Asturias). 
+                        Centro de yoga, pilates y bienestar en Villaviciosa. 
                         Ofrecemos Hatha, Vinyasa, Yin, Pilates y Barre para todos los niveles. 
                         Un espacio de calma y equilibrio en el corazón del concejo.
                     </p>
+                    <!-- Botón para configurar cookies -->
+                    <button id="configurar-cookies" class="btn btn-outline btn-small" style="margin-top: 1rem;">
+                        <i class="fas fa-cookie-bite"></i> Configurar cookies
+                    </button>
                 </div>
             </div>
 

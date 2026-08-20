@@ -197,31 +197,149 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // =============================================
-    // 7. BANNER DE COOKIES
+    // 7. SISTEMA DE CONSENTIMIENTO DE COOKIES
     // =============================================
     const cookieBanner = document.getElementById('cookieBanner');
     const acceptBtn = document.getElementById('acceptCookies');
     const rejectBtn = document.getElementById('rejectCookies');
+    const configBtn = document.getElementById('configurar-cookies');
 
-    if (cookieBanner && acceptBtn && rejectBtn) {
-        const cookiePreference = localStorage.getItem('cookiesPreference');
-        if (!cookiePreference) {
-            cookieBanner.style.display = 'flex';
-        }
+    const mapContainer = document.getElementById('google-map-container');
+    const loadMapBtn = document.getElementById('load-map-btn');
+    const grContainer = document.getElementById('gr-widget-container');
 
-        acceptBtn.addEventListener('click', function() {
-            localStorage.setItem('cookiesPreference', 'accepted');
-            cookieBanner.style.display = 'none';
+    // === FUNCIÓN PARA FORZAR EL CENTRADO DE GRWidget ===
+    function forzarCentradoGRWidget() {
+        const container = document.getElementById('gr-widget-container');
+        if (!container) return;
+
+        // Buscar el widget dentro del contenedor
+        const widget = container.querySelector('.grwidget-embed');
+        if (!widget) return;
+
+        // Aplicar estilos al contenedor principal del widget
+        widget.style.display = 'flex';
+        widget.style.flexDirection = 'column';
+        widget.style.alignItems = 'center';
+        widget.style.justifyContent = 'center';
+        widget.style.width = '100%';
+        widget.style.maxWidth = '800px';
+        widget.style.margin = '0 auto';
+        widget.style.textAlign = 'center';
+
+        // Aplicar a todos los hijos del widget
+        const allChildren = widget.querySelectorAll('*');
+        allChildren.forEach(function(el) {
+            el.style.marginLeft = 'auto';
+            el.style.marginRight = 'auto';
+            el.style.textAlign = 'center';
+            el.style.display = 'block';
+            el.style.float = 'none';
+            el.style.clear = 'both';
         });
 
-        rejectBtn.addEventListener('click', function() {
-            localStorage.setItem('cookiesPreference', 'rejected');
-            cookieBanner.style.display = 'none';
+        // Si hay listas, forzamos también
+        const lists = widget.querySelectorAll('ul, li');
+        lists.forEach(function(el) {
+            el.style.listStyle = 'none';
+            el.style.padding = '0';
+            el.style.margin = '0 auto';
+            el.style.textAlign = 'center';
+            el.style.display = 'flex';
+            el.style.flexDirection = 'column';
+            el.style.alignItems = 'center';
+        });
+    }
+
+    // === FUNCIÓN PARA CARGAR GRWidget ===
+    function cargarGRWidget() {
+        if (!grContainer) return;
+        const key = grContainer.dataset.grwidgetKey;
+        grContainer.innerHTML = `<div class="grwidget-embed" data-grwidget-key="${key}"></div>`;
+
+        // Cargar el script
+        const script = document.createElement('script');
+        script.src = 'https://grwidget.com/v1/grwidget.js';
+        script.async = true;
+        script.defer = true;
+
+        // Cuando el script termine de cargar, forzar el centrado
+        script.onload = function() {
+            // Pequeño retraso para que el widget se renderice
+            setTimeout(forzarCentradoGRWidget, 500);
+        };
+
+        document.body.appendChild(script);
+
+        // También observar cambios en el contenedor por si el script modifica el DOM después
+        const observer = new MutationObserver(function(mutations) {
+            const widget = grContainer.querySelector('.grwidget-embed');
+            if (widget) {
+                // Si el widget aparece, forzamos el centrado
+                forzarCentradoGRWidget();
+                observer.disconnect(); // Dejamos de observar
+            }
+        });
+
+        observer.observe(grContainer, { childList: true, subtree: true });
+    }
+
+    // === FUNCIÓN PARA CARGAR GOOGLE MAPS ===
+    function cargarGoogleMaps() {
+        if (!mapContainer) return;
+        const mapUrl = mapContainer.dataset.mapUrl;
+        mapContainer.classList.remove('third-party-placeholder');
+        mapContainer.innerHTML = `<iframe src="${mapUrl}" width="100%" height="220" style="border:0; border-radius:20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Spaciocero"></iframe>`;
+    }
+    function aceptarCookies() {
+        localStorage.setItem('cookiesPreference', 'accepted');
+        cookieBanner.style.display = 'none';
+        cargarGoogleMaps();
+        cargarGRWidget();
+    }
+
+    function rechazarCookies() {
+        localStorage.setItem('cookiesPreference', 'rejected');
+        cookieBanner.style.display = 'none';
+    }
+
+    function mostrarBanner() {
+        cookieBanner.style.display = 'flex';
+    }
+
+    function resetearConsentimiento() {
+        localStorage.removeItem('cookiesPreference');
+        window.location.reload();
+    }
+
+    if (acceptBtn) acceptBtn.addEventListener('click', aceptarCookies);
+    if (rejectBtn) rejectBtn.addEventListener('click', rechazarCookies);
+    if (configBtn) configBtn.addEventListener('click', resetearConsentimiento);
+
+    const cookiePreference = localStorage.getItem('cookiesPreference');
+    if (cookiePreference === 'accepted') {
+        aceptarCookies();
+    } else if (cookiePreference === 'rejected') {
+        rechazarCookies();
+    } else {
+        mostrarBanner();
+    }
+
+    if (loadMapBtn) {
+        loadMapBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const pref = localStorage.getItem('cookiesPreference');
+            if (pref !== 'accepted') {
+                mostrarBanner();
+                alert('Por favor, acepta las cookies de terceros para ver el mapa.');
+                return;
+            }
+            cargarGoogleMaps();
         });
     }
 
     // =============================================
-    // 8. ANIMACIONES FADE-IN AL HACER SCROLL
+    // 8. ANIMACIONES FADE-IN
     // =============================================
     const fadeElements = document.querySelectorAll('.section, .clase-card, .equipo-card, .ideal-item, .galeria-item, .primera-clase-content, .yoga-local-content');
 
@@ -242,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // =============================================
-    // 9. MODAL "MÁS INFO" DE CLASES
+    // 9. MODAL "MÁS INFO"
     // =============================================
     const modalOverlay = document.getElementById('modalInfo');
     const modalTitle = document.getElementById('modalTitle');
@@ -299,11 +417,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // =============================================
     const floatWhatsApp = document.querySelector('.float-btn.whatsapp-btn');
     if (floatWhatsApp) {
-        // Eliminamos el href original para que no abra el chat de reserva
         floatWhatsApp.removeAttribute('href');
-        // Lo convertimos en un botón (pero manteniendo estilos)
         floatWhatsApp.style.cursor = 'pointer';
-        // Al hacer clic, ejecutamos la acción de compartir
         floatWhatsApp.addEventListener('click', function(e) {
             e.preventDefault();
             acciones.whatsapp();

@@ -142,14 +142,13 @@ ul {
 .header-right {
     display: flex;
     align-items: center;
-    gap: 0.8rem; /* Espacio en escritorio entre botones y toggle (aunque toggle oculto) */
+    gap: 0.8rem;
     flex-shrink: 0;
-    margin-left: 1.5rem; /* Separación del menú en escritorio */
+    margin-left: 1.5rem;
 }
 
-/* El menú hamburguesa SOLO se muestra en móvil */
 .menu-toggle {
-    display: none; /* Oculto en escritorio */
+    display: none;
     flex-direction: column;
     gap: 5px;
     background: none;
@@ -179,7 +178,6 @@ ul {
     gap: 0.5rem;
 }
 
-/* Botones de redes (tamaño reducido para el header) */
 .float-btn {
     display: flex;
     align-items: center;
@@ -201,7 +199,6 @@ ul {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Botón WhatsApp */
 .whatsapp-btn {
     background: #25D366;
 }
@@ -209,7 +206,6 @@ ul {
     background: #1da851;
 }
 
-/* Botón Instagram */
 .instagram-btn {
     background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
@@ -221,23 +217,21 @@ ul {
    RESPONSIVE: MÓVIL
    ============================================ */
 @media (max-width: 768px) {
-    /* Mostrar el menú hamburguesa en móvil */
     .menu-toggle {
         display: flex;
     }
 
-    /* En móvil: un poco más de separación entre botones y toggle para que se vea bonito */
     .header-right {
-        gap: 0.6rem; /* Aumentado de 0.3rem a 0.6rem */
-        margin-left: 0; /* Sin margen extra */
+        gap: 0.6rem;
+        margin-left: 0;
     }
 
     .header-buttons {
         gap: 0.3rem;
-        order: 0; /* Los botones primero */
+        order: 0;
     }
     .menu-toggle {
-        order: 1; /* El toggle después */
+        order: 1;
     }
     .floating-buttons {
         gap: 0.5rem;
@@ -248,7 +242,6 @@ ul {
         font-size: 16px;
     }
 
-    /* Menú de navegación desplegable */
     .nav {
         display: none;
         position: absolute;
@@ -804,6 +797,7 @@ ul {
     align-items: center !important;
 }
 
+/* Estilos de GRWidget centrado - REFORZADO */
 .grwidget-embed {
     width: 100% !important;
     max-width: 800px !important;
@@ -1158,6 +1152,14 @@ ul {
 }
 .copiar-mensaje.visible {
     opacity: 1;
+
+/* Eliminar fondo y borde gris del mapa cuando ya está cargado */
+#google-map-container.third-party-placeholder {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
 }
 
 /* ============================================
@@ -1172,7 +1174,7 @@ ul {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Una sola columna centrada */
+    grid-template-columns: 1fr;
     gap: 0;
     padding-bottom: 2rem;
     border-bottom: 1px solid #eaeaea;
@@ -1481,6 +1483,149 @@ ul {
     .modal-content p {
         font-size: 0.95rem;
     }
+}
+
+/* ============================================
+   BLOQUEADORES DE TERCEROS - REFORZADO
+   ============================================ */
+.third-party-placeholder {
+    background: #f8faf9;
+    border: 2px dashed #d0d8d5;
+    border-radius: 20px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    margin: 1.5rem 0;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.third-party-placeholder .placeholder-text {
+    color: #6b7a7f;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.third-party-placeholder .btn {
+    margin-top: 0.5rem;
+}
+
+#google-map-container iframe {
+    width: 100%;
+    height: 220px;
+    border: 0;
+    border-radius: 20px;
+}
+
+/* === FORZAR CENTRADO DE GRWidget - MUY AGRESIVO === */
+#gr-widget-container {
+    width: 100% !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+#gr-widget-container .grwidget-embed {
+    width: 100% !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+#gr-widget-container *,
+#gr-widget-container .grwidget-embed * {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    display: block !important;
+    float: none !important;
+    clear: both !important;
+}
+
+/* Clases específicas de GRWidget */
+#gr-widget-container .grw-rating,
+#gr-widget-container .grw-stars,
+#gr-widget-container .grw-review-text,
+#gr-widget-container .grw-review-author,
+#gr-widget-container .grw-review-date,
+#gr-widget-container .grw-review-content,
+#gr-widget-container .grw-review-item,
+#gr-widget-container .grw-widget,
+#gr-widget-container .grw-row,
+#gr-widget-container .grw-col {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+#gr-widget-container ul,
+#gr-widget-container li {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+/* ============================================
+   BOTÓN CONFIGURAR COOKIES
+   ============================================ */
+#configurar-cookies {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ============================================
+   RESPONSIVE PARA BLOQUEADORES
+   ============================================ */
+@media (max-width: 768px) {
+    .third-party-placeholder {
+        padding: 1.5rem 1rem;
+        min-height: 120px;
+    }
+    .third-party-placeholder .placeholder-text {
+        font-size: 0.9rem;
+    }
+
+    #gr-widget-container {
+        max-width: 100% !important;
+        padding: 0 0.5rem !important;
+    }
+    #gr-widget-container .grwidget-embed {
+        max-width: 100% !important;
+    }
+}
+
+/* ============================================
+   ELIMINAR CUADRADO GRIS DE GRWIDGET
+   ============================================ */
+#gr-widget-container.third-party-placeholder {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    min-height: auto !important;
 }
 
 /* ============================================
