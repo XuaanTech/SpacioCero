@@ -388,6 +388,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const mensajeWhatsApp = encodeURIComponent(`Hola, me gustaría reservar ${nombreClase}`);
         modalAction.href = `https://wa.me/34656167226?text=${mensajeWhatsApp}`;
         modalAction.target = '_blank';
+        modalAction.rel = 'noopener noreferrer';
         modalOverlay.style.display = 'flex';
         document.body.style.overflow = 'hidden';
     }
