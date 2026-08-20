@@ -136,8 +136,20 @@ ul {
     color: #000;
 }
 
+/* ============================================
+   HEADER RIGHT (menú hamburguesa + botones redes)
+   ============================================ */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem; /* Espacio en escritorio entre botones y toggle (aunque toggle oculto) */
+    flex-shrink: 0;
+    margin-left: 1.5rem; /* Separación del menú en escritorio */
+}
+
+/* El menú hamburguesa SOLO se muestra en móvil */
 .menu-toggle {
-    display: none;
+    display: none; /* Oculto en escritorio */
     flex-direction: column;
     gap: 5px;
     background: none;
@@ -154,8 +166,117 @@ ul {
     transition: 0.2s;
 }
 
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.floating-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Botones de redes (tamaño reducido para el header) */
+.float-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 18px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.float-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón WhatsApp */
+.whatsapp-btn {
+    background: #25D366;
+}
+.whatsapp-btn:hover {
+    background: #1da851;
+}
+
+/* Botón Instagram */
+.instagram-btn {
+    background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+.instagram-btn:hover {
+    opacity: 0.9;
+}
+
 /* ============================================
-   BOTONES
+   RESPONSIVE: MÓVIL
+   ============================================ */
+@media (max-width: 768px) {
+    /* Mostrar el menú hamburguesa en móvil */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* En móvil: un poco más de separación entre botones y toggle para que se vea bonito */
+    .header-right {
+        gap: 0.6rem; /* Aumentado de 0.3rem a 0.6rem */
+        margin-left: 0; /* Sin margen extra */
+    }
+
+    .header-buttons {
+        gap: 0.3rem;
+        order: 0; /* Los botones primero */
+    }
+    .menu-toggle {
+        order: 1; /* El toggle después */
+    }
+    .floating-buttons {
+        gap: 0.5rem;
+    }
+    .float-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+
+    /* Menú de navegación desplegable */
+    .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        padding: 1.5rem;
+        border-bottom: 1px solid #eee;
+        box-shadow: 0 12px 24px rgba(0,0,0,0.04);
+        z-index: 200;
+        margin-left: 0;
+    }
+    .nav.open {
+        display: block;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+        font-size: 1rem;
+        flex-wrap: wrap;
+        white-space: normal;
+    }
+}
+
+/* ============================================
+   BOTONES (generales)
    ============================================ */
 .btn {
     display: inline-block;
@@ -1040,7 +1161,7 @@ ul {
 }
 
 /* ============================================
-   FOOTER (actualizado a 3 columnas)
+   FOOTER (simplificado, centrado)
    ============================================ */
 .footer {
     background: #fafcfb;
@@ -1051,18 +1172,26 @@ ul {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr; /* Cambiado de 4 a 3 columnas */
-    gap: 2.5rem;
+    grid-template-columns: 1fr; /* Una sola columna centrada */
+    gap: 0;
     padding-bottom: 2rem;
     border-bottom: 1px solid #eaeaea;
+    justify-items: center;
+    text-align: center;
+}
+
+.footer-col-center {
+    max-width: 700px;
+    width: 100%;
 }
 
 .logo-footer {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.6rem;
     text-decoration: none;
     margin-bottom: 0.8rem;
+    justify-content: center;
 }
 .logo-footer-img {
     height: 40px;
@@ -1081,60 +1210,32 @@ ul {
 
 .footer-desc {
     color: #4a5a60;
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.6;
-    max-width: 280px;
+    max-width: 600px;
+    margin: 0 auto 0.5rem;
 }
 
-.footer-col h4 {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin-bottom: 0.8rem;
-}
-.footer-col ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-.footer-col ul li {
-    font-size: 0.9rem;
-    color: #4a5a60;
-}
-.footer-col ul li i {
-    width: 1.2rem;
+.footer-legal {
+    text-align: center;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid #eaeaea;
+    font-size: 0.85rem;
     color: #6b7a7f;
-    flex-shrink: 0;
 }
-.footer-col ul li a {
+.footer-legal a {
+    color: #6b7a7f;
+    text-decoration: none;
     transition: color 0.2s;
 }
-.footer-col ul li a:hover {
-    color: #000;
-}
-
-/* Ya no necesitamos .footer-socials, pero lo mantenemos por si acaso */
-.footer-socials {
-    display: flex;
-    gap: 1rem;
-}
-.footer-socials a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #f0f2f1;
+.footer-legal a:hover {
     color: #1a1a1a;
-    transition: all 0.2s;
-    font-size: 1.1rem;
-    flex-shrink: 0;
+    text-decoration: underline;
 }
-.footer-socials a:hover {
-    background: #1a1a1a;
-    color: #fff;
-    transform: translateY(-2px);
+.footer-legal .separator {
+    margin: 0 0.6rem;
+    color: #d0d8d5;
 }
 
 .footer-bottom {
@@ -1184,71 +1285,6 @@ ul {
         min-width: 100%;
         width: 100%;
         max-width: 300px;
-    }
-}
-
-/* ============================================
-   BOTONES FLOTANTES (WhatsApp + Instagram)
-   ============================================ */
-.floating-buttons {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    z-index: 999;
-}
-
-.float-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    color: #fff;
-    font-size: 28px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-}
-
-.float-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
-}
-
-/* Botón WhatsApp */
-.whatsapp-btn {
-    background: #25D366;
-}
-.whatsapp-btn:hover {
-    background: #1da851;
-}
-
-/* Botón Instagram */
-.instagram-btn {
-    background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-}
-.instagram-btn:hover {
-    opacity: 0.9;
-    transform: scale(1.1);
-}
-
-/* Ajuste para móviles muy pequeños */
-@media (max-width: 480px) {
-    .floating-buttons {
-        bottom: 16px;
-        right: 16px;
-        gap: 10px;
-    }
-    .float-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 24px;
     }
 }
 
@@ -1306,29 +1342,8 @@ ul {
 }
 
 /* ============================================
-   FOOTER LEGAL
+   FOOTER LEGAL (ya está dentro del footer)
    ============================================ */
-.footer-legal {
-    text-align: center;
-    padding-top: 1.5rem;
-    margin-top: 1.5rem;
-    border-top: 1px solid #eaeaea;
-    font-size: 0.85rem;
-    color: #6b7a7f;
-}
-.footer-legal a {
-    color: #6b7a7f;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-.footer-legal a:hover {
-    color: #1a1a1a;
-    text-decoration: underline;
-}
-.footer-legal .separator {
-    margin: 0 0.6rem;
-    color: #d0d8d5;
-}
 
 /* ============================================
    PÁGINAS LEGALES (placeholder)
@@ -1469,7 +1484,7 @@ ul {
 }
 
 /* ============================================
-   RESPONSIVE
+   RESPONSIVE (resto)
    ============================================ */
 @media (max-width: 1024px) {
     .hero-inner {
@@ -1502,34 +1517,6 @@ ul {
 }
 
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: flex;
-    }
-    .nav {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #fff;
-        padding: 1.5rem;
-        border-bottom: 1px solid #eee;
-        box-shadow: 0 12px 24px rgba(0,0,0,0.04);
-        z-index: 200;
-        margin-left: 0;
-    }
-    .nav.open {
-        display: block;
-    }
-    .nav-links {
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: center;
-        font-size: 1rem;
-        flex-wrap: wrap;
-        white-space: normal;
-    }
-
     .hero h1 {
         font-size: 2.4rem;
     }
@@ -1540,11 +1527,14 @@ ul {
     }
 
     .footer-grid {
-        grid-template-columns: 1fr 1fr; /* En tablets se convierte en 2 columnas */
-        gap: 2rem;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
-    .footer-col:first-child {
-        grid-column: span 2;
+    .footer-col-center {
+        max-width: 100%;
+    }
+    .footer-desc {
+        font-size: 0.95rem;
     }
 
     .horario-tabla {
@@ -1608,12 +1598,8 @@ ul {
         font-size: 1.2rem;
     }
 
-    .footer-grid {
-        grid-template-columns: 1fr; /* En móvil pasa a 1 columna */
-        gap: 1.5rem;
-    }
-    .footer-col:first-child {
-        grid-column: span 1;
+    .footer-desc {
+        font-size: 0.9rem;
     }
 
     .mapa-acciones {
@@ -1629,14 +1615,6 @@ ul {
     .dropdown-item {
         font-size: 0.85rem;
         padding: 0.65rem 1rem;
-    }
-
-    .whatsapp-float {
-        width: 56px;
-        height: 56px;
-        font-size: 1.8rem;
-        bottom: 16px;
-        right: 16px;
     }
 
     .clase-meta {

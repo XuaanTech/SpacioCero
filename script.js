@@ -1,10 +1,3 @@
-/**
- * Spaciocero - Script principal
- * Funcionalidad: menú hamburguesa, dropdown compartir, acordeón FAQ,
- * estado de apertura dinámico, año dinámico, banner de cookies,
- * animaciones fade-in y modal "Más info".
- */
-
 document.addEventListener('DOMContentLoaded', function () {
 
     // =============================================
@@ -83,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // =============================================
     const url = encodeURIComponent(window.location.href.split('#')[0]);
     const titulo = encodeURIComponent('Spaciocero · Yoga y Bienestar en Villaviciosa');
-    const texto = encodeURIComponent('Descubre Spaciocero, un espacio de yoga y bienestar en Villaviciosa.');
+    const texto = encodeURIComponent('Ven a Spaciocero, el mejor centro de yoga y pilates en Villaviciosa. ¡Relájate y recarga energías!');
 
     const acciones = {
         whatsapp: () => window.open(`https://wa.me/?text=${texto}%20${url}`, '_blank'),
@@ -249,7 +242,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // =============================================
-    // 9. MODAL "MÁS INFO" DE CLASES (NUEVO)
+    // 9. MODAL "MÁS INFO" DE CLASES
     // =============================================
     const modalOverlay = document.getElementById('modalInfo');
     const modalTitle = document.getElementById('modalTitle');
@@ -257,9 +250,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const modalClose = document.getElementById('modalClose');
     const modalAction = document.getElementById('modalAction');
 
-    // Función para abrir el modal
     function abrirModal(clase) {
-        // Personalizar el mensaje según la clase
         let nombreClase = clase.charAt(0).toUpperCase() + clase.slice(1);
         const nombres = {
             'hatha': 'Hatha Yoga',
@@ -273,21 +264,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
         modalTitle.textContent = `🧘 ${nombreClase}`;
         modalText.textContent = `Información detallada de ${nombreClase} (próximamente). Puedes reservar directamente por WhatsApp.`;
-        // Configurar el botón de acción para que abra WhatsApp con el mensaje adecuado
         const mensajeWhatsApp = encodeURIComponent(`Hola, me gustaría reservar ${nombreClase}`);
         modalAction.href = `https://wa.me/34656167226?text=${mensajeWhatsApp}`;
         modalAction.target = '_blank';
         modalOverlay.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Evita scroll
+        document.body.style.overflow = 'hidden';
     }
 
-    // Función para cerrar el modal
     function cerrarModal() {
         modalOverlay.style.display = 'none';
         document.body.style.overflow = '';
     }
 
-    // Evento para cada botón "Más info"
     document.querySelectorAll('.btn-info').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
@@ -296,19 +284,30 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Cerrar modal al hacer clic en la X
     modalClose.addEventListener('click', cerrarModal);
-
-    // Cerrar modal al hacer clic fuera del contenido (en el overlay)
     modalOverlay.addEventListener('click', function(e) {
         if (e.target === modalOverlay) cerrarModal();
     });
-
-    // Cerrar modal con tecla ESC
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && modalOverlay.style.display === 'flex') {
             cerrarModal();
         }
     });
+
+    // =============================================
+    // 10. BOTÓN FLOTANTE DE WHATSAPP → COMPARTIR
+    // =============================================
+    const floatWhatsApp = document.querySelector('.float-btn.whatsapp-btn');
+    if (floatWhatsApp) {
+        // Eliminamos el href original para que no abra el chat de reserva
+        floatWhatsApp.removeAttribute('href');
+        // Lo convertimos en un botón (pero manteniendo estilos)
+        floatWhatsApp.style.cursor = 'pointer';
+        // Al hacer clic, ejecutamos la acción de compartir
+        floatWhatsApp.addEventListener('click', function(e) {
+            e.preventDefault();
+            acciones.whatsapp();
+        });
+    }
 
 });

@@ -31,9 +31,7 @@
                 </picture>
                 <span class="logo-text">Spacio<span>cero</span></span>
             </a>
-            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-                <span></span><span></span><span></span>
-            </button>
+
             <nav class="nav" id="nav" aria-label="Navegación principal">
                 <ul class="nav-links">
                     <li><a href="#sobre">Sobre nosotros</a></li>
@@ -46,11 +44,32 @@
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
+
+            <!-- Contenedor derecho: primero los botones de redes, luego el menú hamburguesa -->
+            <div class="header-right">
+                <!-- Botones de redes (siempre visibles) -->
+                <div class="header-buttons">
+                    <div class="floating-buttons">
+                        <a href="https://www.instagram.com/spaciocero/" target="_blank" class="float-btn instagram-btn" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20una%20clase" target="_blank" class="float-btn whatsapp-btn" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Menú hamburguesa (solo visible en móvil) -->
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+            <!-- FIN HEADER RIGHT -->
+
         </div>
     </header>
 
     <main>
-
         <!-- ================= HERO ================= -->
         <section id="inicio" class="hero">
             <div class="container hero-inner">
@@ -547,11 +566,11 @@
 
     </main>
 
-    <!-- ================= FOOTER (sin la columna "Síguenos") ================= -->
+    <!-- ================= FOOTER (simplificado, solo logo + descripción) ================= -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
+                <div class="footer-col footer-col-center">
                     <a href="#inicio" class="logo-footer">
                         <picture>
                             <source srcset="./spaciocero_logo2_retocado-circle.webp" type="image/webp" />
@@ -559,24 +578,12 @@
                         </picture>
                         <span class="logo-footer-text">Spacio<span>cero</span></span>
                     </a>
-                    <p class="footer-desc">Centro de yoga y bienestar en Villaviciosa. Un espacio para encontrar tu equilibrio.</p>
+                    <p class="footer-desc">
+                        Centro de yoga, pilates y bienestar en Villaviciosa (Asturias). 
+                        Ofrecemos Hatha, Vinyasa, Yin, Pilates y Barre para todos los niveles. 
+                        Un espacio de calma y equilibrio en el corazón del concejo.
+                    </p>
                 </div>
-                <div class="footer-col">
-                    <h4>Información de contacto</h4>
-                    <ul>
-                        <li><i class="fas fa-phone"></i> <a href="tel:684680902">684 68 09 02</a></li>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:hola@spaciocero.es">hola@spaciocero.es</a></li>
-                        <li><i class="fas fa-map-pin"></i> C. Alfonso X el Sabio, 3</li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Nuestro horario</h4>
-                    <ul>
-                        <li>L-J: 8:00 – 14:00 · 17:00 – 21:00</li>
-                        <li>V-D: Cerrado</li>
-                    </ul>
-                </div>
-                <!-- Eliminada la columna "Síguenos" porque ahora están los botones flotantes -->
             </div>
 
             <div class="footer-legal">
@@ -615,16 +622,6 @@
         </div>
     </div>
 
-    <!-- ================= BOTONES FLOTANTES (WhatsApp + Instagram) ================= -->
-    <div class="floating-buttons">
-        <a href="https://www.instagram.com/spaciocero/" target="_blank" class="float-btn instagram-btn" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://wa.me/34656167226?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20una%20clase" target="_blank" class="float-btn whatsapp-btn" aria-label="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-    </div>
-    
     <!-- ================= JAVASCRIPT ================= -->
     <script src="./script.js"></script>
 
