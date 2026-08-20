@@ -12,6 +12,7 @@
 </head>
 <body>
 
+    <!-- CABECERA LEGAL -->
     <header class="header">
         <div class="container header-inner">
             <a href="../index.html" class="logo">
@@ -21,17 +22,22 @@
                 </picture>
                 <span class="logo-text">Spacio<span>cero</span></span>
             </a>
-            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-                <span></span><span></span><span></span>
-            </button>
-            <nav class="nav" id="nav">
+
+            <!-- NAVEGACIÓN LEGAL: solo enlaces a las páginas legales y a inicio -->
+            <nav class="nav" id="nav" aria-label="Navegación legal">
                 <ul class="nav-links">
-                    <li><a href="../index.html#inicio">Inicio</a></li>
-                    <li><a href="../index.html#sobre">Sobre nosotros</a></li>
-                    <li><a href="../index.html#clases">Clases</a></li>
-                    <li><a href="../index.html#contacto">Contacto</a></li>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="./aviso-legal.html" class="activo">Aviso legal</a></li>
+                    <li><a href="./politica-privacidad.html">Política de privacidad</a></li>
+                    <li><a href="./politica-cookies.html">Política de cookies</a></li>
                 </ul>
             </nav>
+
+            <div class="header-right">
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -90,10 +96,11 @@
         </section>
     </main>
 
+    <!-- ================= FOOTER (idéntico al de index) ================= -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
+                <div class="footer-col footer-col-center">
                     <a href="../index.html" class="logo-footer">
                         <picture>
                             <source srcset="../spaciocero_logo2_retocado-circle.webp" type="image/webp" />
@@ -101,30 +108,17 @@
                         </picture>
                         <span class="logo-footer-text">Spacio<span>cero</span></span>
                     </a>
-                    <p class="footer-desc">Centro de yoga y bienestar en Villaviciosa. Un espacio para encontrar tu equilibrio.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Información de contacto</h4>
-                    <ul>
-                        <li><i class="fas fa-phone"></i> <a href="tel:684680902">684 68 09 02</a></li>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:hola@spaciocero.es">hola@spaciocero.es</a></li>
-                        <li><i class="fas fa-map-pin"></i> C. Alfonso X el Sabio, 3</li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Nuestro horario</h4>
-                    <ul>
-                        <li>L-J: 8:00 – 14:00 · 17:00 – 21:00</li>
-                        <li>V-D: Cerrado</li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Síguenos</h4>
-                    <div class="footer-socials">
-                        <a href="https://www.instagram.com/spaciocero/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    </div>
+                    <p class="footer-desc">
+                        Centro de yoga, pilates y bienestar en Villaviciosa. 
+                        Ofrecemos Hatha, Vinyasa, Yin, Pilates y Barre para todos los niveles. 
+                        Un espacio de calma y equilibrio en el corazón del concejo.
+                    </p>
+                    <button id="configurar-cookies" class="btn btn-outline btn-small" style="margin-top: 1rem;">
+                        <i class="fas fa-cookie-bite"></i> Configurar cookies
+                    </button>
                 </div>
             </div>
+
             <div class="footer-legal">
                 <a href="./politica-privacidad.html">Política de privacidad</a>
                 <span class="separator">·</span>
@@ -132,6 +126,7 @@
                 <span class="separator">·</span>
                 <a href="./politica-cookies.html">Política de cookies</a>
             </div>
+
             <div class="footer-bottom">
                 <p>&copy; 2026 · Spaciocero</p>
             </div>
