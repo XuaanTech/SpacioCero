@@ -395,10 +395,17 @@ ul {
     font-weight: 300;
     letter-spacing: -0.03em;
     line-height: 1.15;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 .hero-content h1 strong {
     font-weight: 600;
+}
+
+.hero-eslogan {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: #4a5a60;
+    margin-bottom: 0.5rem;
 }
 
 .hero-descripcion {
@@ -493,14 +500,14 @@ ul {
    ============================================ */
 .clases-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
     margin-top: 1.5rem;
 }
 
 .clase-card {
     background: #ffffff;
-    padding: 2rem 1.5rem;
+    padding: 1.8rem 1.5rem;
     border-radius: 24px;
     text-align: center;
     border: 1px solid #f0f0f0;
@@ -509,6 +516,9 @@ ul {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: auto;
+    min-height: 380px;
+    justify-content: flex-start;
 }
 .clase-card:hover {
     transform: translateY(-6px);
@@ -517,8 +527,8 @@ ul {
 }
 
 .clase-icon {
-    font-size: 2.6rem;
-    margin-bottom: 0.8rem;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -529,9 +539,9 @@ ul {
 }
 
 .clase-card h3 {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     color: #1a1a1a;
 }
 
@@ -540,23 +550,25 @@ ul {
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 0.8rem;
-    flex: 1;
+    flex: 1 1 auto;
 }
 
 .clase-detalles {
     width: 100%;
-    font-size: 0.85rem;
+    font-size: 0.80rem;
     color: #2d3a3f;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
+    gap: 0.15rem;
     background: #f9fbfa;
-    padding: 0.6rem;
+    padding: 0.6rem 0.8rem;
     border-radius: 12px;
 }
 .clase-detalles span {
     display: block;
+    white-space: normal;
+    word-break: break-word;
 }
 .clase-detalles strong {
     color: #1a1a1a;
@@ -567,15 +579,26 @@ ul {
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.4rem;
-    font-size: 0.85rem;
+    font-size: 0.70rem;
     color: #6b7a7f;
-    margin-bottom: 0.8rem;
+    margin-top: 2rem;  /* <-- NUEVO: separación fija respecto a clase-detalles */
+    margin-bottom: 0.6rem;
     width: 100%;
 }
 .clase-meta span {
     background: #f0f2f1;
     padding: 0.2rem 0.8rem;
     border-radius: 30px;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Nuevo estilo para el precio dentro de .clase-meta */
+.clase-precio {
+    background: #e8f0ec !important;
+    color: #1a3a2f !important;
+    font-weight: 600;
     white-space: nowrap;
 }
 
@@ -585,7 +608,7 @@ ul {
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    margin-top: 0.5rem;
+    margin-top: 0.4rem;
 }
 .clase-acciones .btn {
     flex: 0 1 auto;
@@ -689,6 +712,12 @@ ul {
     font-size: 4rem;
     color: #b0bcc0;
     flex-shrink: 0;
+    overflow: hidden;
+}
+.equipo-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .equipo-foto i {
     font-size: 4rem;
@@ -708,15 +737,6 @@ ul {
     color: #4a5a60;
     font-size: 0.9rem;
     line-height: 1.5;
-}
-.equipo-nota {
-    text-align: center;
-    margin-top: 2rem;
-    color: #6b7a7f;
-    font-size: 0.95rem;
-}
-.equipo-nota strong {
-    color: #1a1a1a;
 }
 
 /* ============================================
@@ -786,6 +806,21 @@ ul {
 .estado-indicador.cerrado {
     background: #ef4444;
     box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
+}
+
+/* Aviso septiembre */
+.aviso-septiembre {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: #f5f0eb;
+    border-radius: 12px;
+    text-align: center;
+    border-left: 4px solid #c0392b;
+}
+.aviso-septiembre p {
+    margin: 0;
+    font-weight: 600;
+    color: #c0392b;
 }
 
 /* ============================================
@@ -1336,10 +1371,6 @@ ul {
 }
 
 /* ============================================
-   FOOTER LEGAL (ya está dentro del footer)
-   ============================================ */
-
-/* ============================================
    PÁGINAS LEGALES (placeholder)
    ============================================ */
 .legal-section {
@@ -1758,6 +1789,7 @@ ul {
     .clase-meta {
         font-size: 0.75rem;
         gap: 0.3rem;
+        margin-top: 0.6rem; /* ligeramente reducido en móvil para no romper */
     }
     .clase-meta span {
         padding: 0.15rem 0.6rem;
