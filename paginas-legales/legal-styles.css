@@ -80,10 +80,26 @@ ul {
     flex-shrink: 0;
 }
 .logo-img {
-    height: 55px;
-    width: auto;
+    width: 0;
+    height: 0;
+    min-width: 0;
+    min-height: 0;
+    max-width: 0;
+    max-height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border: none;
     display: block;
     object-fit: contain;
+    flex-shrink: 0;
+}
+picture {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    flex-shrink: 0;
 }
 .logo-text {
     font-size: 1.6rem;
@@ -337,9 +353,19 @@ ul {
     justify-content: center;
 }
 .logo-footer-img {
-    height: 40px;
-    width: auto;
+    width: 0;
+    height: 0;
+    min-width: 0;
+    min-height: 0;
+    max-width: 0;
+    max-height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: block;
     object-fit: contain;
+    flex-shrink: 0;
 }
 .logo-footer-text {
     font-size: 1.3rem;
@@ -391,7 +417,7 @@ ul {
 }
 
 /* ============================================
-   COOKIE BANNER (NUEVO)
+   COOKIE BANNER
    ============================================ */
 .cookie-banner {
     position: fixed;
