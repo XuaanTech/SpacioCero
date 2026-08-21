@@ -395,17 +395,10 @@ ul {
     font-weight: 300;
     letter-spacing: -0.03em;
     line-height: 1.15;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 .hero-content h1 strong {
     font-weight: 600;
-}
-
-.hero-eslogan {
-    font-size: 1.3rem;
-    font-weight: 300;
-    color: #4a5a60;
-    margin-bottom: 0.5rem;
 }
 
 .hero-descripcion {
@@ -586,13 +579,6 @@ ul {
     white-space: nowrap;
 }
 
-/* Nuevo estilo para el precio dentro de .clase-meta */
-.clase-precio {
-    background: #e8f0ec !important;
-    color: #1a3a2f !important;
-    font-weight: 600;
-}
-
 .clase-acciones {
     display: flex;
     gap: 0.6rem;
@@ -703,12 +689,6 @@ ul {
     font-size: 4rem;
     color: #b0bcc0;
     flex-shrink: 0;
-    overflow: hidden;
-}
-.equipo-foto img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 .equipo-foto i {
     font-size: 4rem;
@@ -728,6 +708,15 @@ ul {
     color: #4a5a60;
     font-size: 0.9rem;
     line-height: 1.5;
+}
+.equipo-nota {
+    text-align: center;
+    margin-top: 2rem;
+    color: #6b7a7f;
+    font-size: 0.95rem;
+}
+.equipo-nota strong {
+    color: #1a1a1a;
 }
 
 /* ============================================
@@ -797,21 +786,6 @@ ul {
 .estado-indicador.cerrado {
     background: #ef4444;
     box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
-}
-
-/* Aviso septiembre */
-.aviso-septiembre {
-    margin-top: 1.5rem;
-    padding: 1rem;
-    background: #f5f0eb;
-    border-radius: 12px;
-    text-align: center;
-    border-left: 4px solid #c0392b;
-}
-.aviso-septiembre p {
-    margin: 0;
-    font-weight: 600;
-    color: #c0392b;
 }
 
 /* ============================================
@@ -1360,6 +1334,10 @@ ul {
         justify-content: center;
     }
 }
+
+/* ============================================
+   FOOTER LEGAL (ya está dentro del footer)
+   ============================================ */
 
 /* ============================================
    PÁGINAS LEGALES (placeholder)

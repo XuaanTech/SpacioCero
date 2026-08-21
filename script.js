@@ -197,22 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // =============================================
-    // 7. AVISO DE SEPTIEMBRE CERRADO (DINÁMICO)
-    // =============================================
-    function gestionarAvisoSeptiembre() {
-        const aviso = document.getElementById('aviso-septiembre');
-        if (!aviso) return;
-        const mesActual = new Date().getMonth();
-        if (mesActual === 7 || mesActual === 8) {
-            aviso.style.display = 'block';
-        } else {
-            aviso.style.display = 'none';
-        }
-    }
-    gestionarAvisoSeptiembre();
-
-    // =============================================
-    // 8. SISTEMA DE CONSENTIMIENTO DE COOKIES
+    // 7. SISTEMA DE CONSENTIMIENTO DE COOKIES
     // =============================================
     const cookieBanner = document.getElementById('cookieBanner');
     const acceptBtn = document.getElementById('acceptCookies');
@@ -223,11 +208,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const loadMapBtn = document.getElementById('load-map-btn');
     const grContainer = document.getElementById('gr-widget-container');
 
+    // === FUNCIÓN PARA FORZAR EL CENTRADO DE GRWidget ===
     function forzarCentradoGRWidget() {
         const container = document.getElementById('gr-widget-container');
         if (!container) return;
+
         const widget = container.querySelector('.grwidget-embed');
         if (!widget) return;
+
         widget.style.display = 'flex';
         widget.style.flexDirection = 'column';
         widget.style.alignItems = 'center';
@@ -236,6 +224,7 @@ document.addEventListener('DOMContentLoaded', function () {
         widget.style.maxWidth = '800px';
         widget.style.margin = '0 auto';
         widget.style.textAlign = 'center';
+
         const allChildren = widget.querySelectorAll('*');
         allChildren.forEach(function(el) {
             el.style.marginLeft = 'auto';
@@ -245,6 +234,7 @@ document.addEventListener('DOMContentLoaded', function () {
             el.style.float = 'none';
             el.style.clear = 'both';
         });
+
         const lists = widget.querySelectorAll('ul, li');
         lists.forEach(function(el) {
             el.style.listStyle = 'none';
@@ -257,19 +247,24 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // === FUNCIÓN PARA CARGAR GRWidget ===
     function cargarGRWidget() {
         if (!grContainer) return;
         const key = grContainer.dataset.grwidgetKey;
         grContainer.classList.remove('third-party-placeholder');
         grContainer.innerHTML = `<div class="grwidget-embed" data-grwidget-key="${key}"></div>`;
+
         const script = document.createElement('script');
         script.src = 'https://grwidget.com/v1/grwidget.js';
         script.async = true;
         script.defer = true;
+
         script.onload = function() {
             setTimeout(forzarCentradoGRWidget, 500);
         };
+
         document.body.appendChild(script);
+
         const observer = new MutationObserver(function(mutations) {
             const widget = grContainer.querySelector('.grwidget-embed');
             if (widget) {
@@ -277,9 +272,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 observer.disconnect();
             }
         });
+
         observer.observe(grContainer, { childList: true, subtree: true });
     }
 
+    // === FUNCIÓN PARA CARGAR GOOGLE MAPS ===
     function cargarGoogleMaps() {
         if (!mapContainer) return;
         const mapUrl = mapContainer.dataset.mapUrl;
@@ -287,6 +284,7 @@ document.addEventListener('DOMContentLoaded', function () {
         mapContainer.innerHTML = `<iframe src="${mapUrl}" width="100%" height="220" style="border:0; border-radius:20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Spaciocero"></iframe>`;
     }
 
+    // === FUNCIÓN PARA CARGAR FONT AWESOME DINÁMICAMENTE ===
     function loadFontAwesome() {
         if (document.querySelector('link[href*="font-awesome"]')) return;
         var link = document.createElement('link');
@@ -300,12 +298,13 @@ document.addEventListener('DOMContentLoaded', function () {
         cookieBanner.style.display = 'none';
         cargarGoogleMaps();
         cargarGRWidget();
-        loadFontAwesome();
+        loadFontAwesome(); // <--- AÑADIDO
     }
 
     function rechazarCookies() {
         localStorage.setItem('cookiesPreference', 'rejected');
         cookieBanner.style.display = 'none';
+        // No cargar Font Awesome
     }
 
     function mostrarBanner() {
@@ -323,7 +322,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const cookiePreference = localStorage.getItem('cookiesPreference');
     if (cookiePreference === 'accepted') {
-        aceptarCookies();
+        // Ya aceptado, cargar todo
+        aceptarCookies(); // Esto cargará mapa, widget y Font Awesome
     } else if (cookiePreference === 'rejected') {
         rechazarCookies();
     } else {
@@ -344,9 +344,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // =============================================
-    // 9. ANIMACIONES FADE-IN
+    // 8. ANIMACIONES FADE-IN
     // =============================================
     const fadeElements = document.querySelectorAll('.section, .clase-card, .equipo-card, .ideal-item, .galeria-item, .primera-clase-content, .yoga-local-content');
+
     const observer2 = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -357,13 +358,14 @@ document.addEventListener('DOMContentLoaded', function () {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     });
+
     fadeElements.forEach(el => {
         el.classList.add('fade-in');
         observer2.observe(el);
     });
 
     // =============================================
-    // 10. MODAL "MÁS INFO"
+    // 9. MODAL "MÁS INFO"
     // =============================================
     const modalOverlay = document.getElementById('modalInfo');
     const modalTitle = document.getElementById('modalTitle');
@@ -382,10 +384,11 @@ document.addEventListener('DOMContentLoaded', function () {
             'tratamiento': 'Tratamiento'
         };
         nombreClase = nombres[clase] || nombreClase;
+
         modalTitle.textContent = `🧘 ${nombreClase}`;
         modalText.textContent = `Información detallada de ${nombreClase} (próximamente). Puedes reservar directamente por WhatsApp.`;
         const mensajeWhatsApp = encodeURIComponent(`Hola, me gustaría reservar ${nombreClase}`);
-        modalAction.href = `https://wa.me/34661545051?text=${mensajeWhatsApp}`;
+        modalAction.href = `https://wa.me/34656167226?text=${mensajeWhatsApp}`;
         modalAction.target = '_blank';
         modalAction.rel = 'noopener noreferrer';
         modalOverlay.style.display = 'flex';
@@ -416,7 +419,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // =============================================
-    // 11. BOTÓN FLOTANTE DE WHATSAPP → COMPARTIR
+    // 10. BOTÓN FLOTANTE DE WHATSAPP → COMPARTIR
     // =============================================
     const floatWhatsApp = document.querySelector('.float-btn.whatsapp-btn');
     if (floatWhatsApp) {
