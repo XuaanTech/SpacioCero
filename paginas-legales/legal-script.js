@@ -1,6 +1,7 @@
 /**
  * legal-script.js - Script para páginas legales
- * Funcionalidad: menú hamburguesa, año dinámico y carga de Font Awesome según consentimiento.
+ * Funcionalidad: menú hamburguesa, año dinámico, carga de Font Awesome según consentimiento,
+ * y sistema completo de gestión de cookies (banner, aceptar/rechazar, botón configurar).
  */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -42,8 +43,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // =============================================
-    // 3. CARGA DINÁMICA DE FONT AWESOME (solo si aceptado)
+    // 3. SISTEMA DE CONSENTIMIENTO DE COOKIES
     // =============================================
+    const cookieBanner = document.getElementById('cookieBanner');
+    const acceptBtn = document.getElementById('acceptCookies');
+    const rejectBtn = document.getElementById('rejectCookies');
+    const configBtn = document.getElementById('configurar-cookies');
+
+    // Carga de Font Awesome (solo si aceptado)
     function loadFontAwesome() {
         if (document.querySelector('link[href*="font-awesome"]')) return;
         var link = document.createElement('link');
@@ -52,11 +59,39 @@ document.addEventListener('DOMContentLoaded', function () {
         document.head.appendChild(link);
     }
 
-    // Comprobar preferencia
-    var preference = localStorage.getItem('cookiesPreference');
-    if (preference === 'accepted') {
+    function aceptarCookies() {
+        localStorage.setItem('cookiesPreference', 'accepted');
+        cookieBanner.style.display = 'none';
         loadFontAwesome();
+        // Aquí podrías añadir lógica para cargar otros servicios de terceros si los hubiera en legales
     }
-    // Si es 'rejected' o no existe, no se carga
+
+    function rechazarCookies() {
+        localStorage.setItem('cookiesPreference', 'rejected');
+        cookieBanner.style.display = 'none';
+    }
+
+    function mostrarBanner() {
+        cookieBanner.style.display = 'flex';
+    }
+
+    function resetearConsentimiento() {
+        localStorage.removeItem('cookiesPreference');
+        window.location.reload();
+    }
+
+    if (acceptBtn) acceptBtn.addEventListener('click', aceptarCookies);
+    if (rejectBtn) rejectBtn.addEventListener('click', rechazarCookies);
+    if (configBtn) configBtn.addEventListener('click', resetearConsentimiento);
+
+    // Comprobar preferencia al cargar
+    const cookiePreference = localStorage.getItem('cookiesPreference');
+    if (cookiePreference === 'accepted') {
+        aceptarCookies();  // oculta banner y carga Font Awesome
+    } else if (cookiePreference === 'rejected') {
+        rechazarCookies(); // solo oculta banner
+    } else {
+        mostrarBanner();   // sin preferencia, mostrar banner
+    }
 
 });

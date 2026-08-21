@@ -75,8 +75,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // 3. ACCIONES DE COMPARTIR (URL limpia)
     // =============================================
     const url = encodeURIComponent(window.location.href.split('#')[0]);
-    const titulo = encodeURIComponent('Spaciocero · Yoga y Bienestar en Villaviciosa');
-    const texto = encodeURIComponent('Ven a Spaciocero, el mejor centro de yoga y pilates en Villaviciosa. ¡Relájate y recarga energías!');
+    const titulo = encodeURIComponent('Spaciocero...(0) · Yoga y Bienestar en Villaviciosa');
+    const texto = encodeURIComponent('Ven a Spaciocero...(0), el mejor centro de yoga y pilates en Villaviciosa. ¡Relájate y recarga energías!');
 
     const acciones = {
         whatsapp: () => window.open(`https://wa.me/?text=${texto}%20${url}`, '_blank'),
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const footerYear = document.querySelector('.footer-bottom p');
     if (footerYear) {
         const añoActual = new Date().getFullYear();
-        footerYear.innerHTML = `&copy; ${añoActual} · Spaciocero`;
+        footerYear.innerHTML = `&copy; ${añoActual} · Spaciocero...(0)`;
     }
 
     // =============================================
@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!mapContainer) return;
         const mapUrl = mapContainer.dataset.mapUrl;
         mapContainer.classList.remove('third-party-placeholder');
-        mapContainer.innerHTML = `<iframe src="${mapUrl}" width="100%" height="220" style="border:0; border-radius:20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Spaciocero"></iframe>`;
+        mapContainer.innerHTML = `<iframe src="${mapUrl}" width="100%" height="220" style="border:0; border-radius:20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Spaciocero...(0)"></iframe>`;
     }
 
     function loadFontAwesome() {
@@ -428,4 +428,127 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // =============================================
+    // 12. GALERÍA DE FOTOS - VISOR PREMIUM
+    // =============================================
+    function initCarousel() {
+        const stage = document.querySelector('.galeria-foto-stage');
+        const image = document.querySelector('.galeria-foto-principal');
+        const backdrop = document.querySelector('.galeria-foto-backdrop');
+        const counter = document.querySelector('.galeria-fotos-contador');
+        const position = document.querySelector('.galeria-foto-posicion');
+        const prevButtons = document.querySelectorAll('.galeria-foto-prev, .galeria-foto-control-prev');
+        const nextButtons = document.querySelectorAll('.galeria-foto-next, .galeria-foto-control-next');
+
+        if (!stage || !image || !backdrop || !counter || !position || !prevButtons.length || !nextButtons.length) return;
+
+        const total = 17;
+        let current = 0;
+        let startX = 0;
+        let startY = 0;
+        let touchActive = false;
+        let changeTimer = null;
+
+        const getSrc = index => `./img/${index + 1}.webp`;
+
+        function updateText() {
+            const value = `${String(current + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+            counter.textContent = value;
+            position.textContent = value;
+            image.alt = `Fotografía ${current + 1} de Spaciocero...(0)`;
+        }
+
+        function setBackdrop(src) {
+            backdrop.style.backgroundImage = `url("${src}")`;
+        }
+
+        function preload(index) {
+            if (index < 0 || index >= total) return;
+            const preloadImage = new Image();
+            preloadImage.decoding = 'async';
+            preloadImage.src = getSrc(index);
+        }
+
+        function show(index, animate = true) {
+            current = (index + total) % total;
+            const src = getSrc(current);
+
+            if (animate) {
+                image.classList.add('is-changing');
+                clearTimeout(changeTimer);
+                changeTimer = setTimeout(() => image.classList.remove('is-changing'), 180);
+            }
+
+            const nextImage = new Image();
+            nextImage.decoding = 'async';
+            nextImage.onload = function () {
+                image.src = src;
+                setBackdrop(src);
+                requestAnimationFrame(() => image.classList.remove('is-changing'));
+            };
+            nextImage.onerror = function () {
+                image.src = src;
+                setBackdrop(src);
+                image.classList.remove('is-changing');
+            };
+            nextImage.src = src;
+
+            updateText();
+            preload((current + 1) % total);
+            preload((current - 1 + total) % total);
+        }
+
+        prevButtons.forEach(button => button.addEventListener('click', () => show(current - 1)));
+        nextButtons.forEach(button => button.addEventListener('click', () => show(current + 1)));
+
+        document.addEventListener('keydown', function (e) {
+            const active = document.activeElement;
+            const tag = active ? active.tagName : '';
+            const editing = active && (active.isContentEditable || tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT');
+            if (editing) return;
+
+            if (e.key === 'ArrowLeft') {
+                show(current - 1);
+                e.preventDefault();
+            } else if (e.key === 'ArrowRight') {
+                show(current + 1);
+                e.preventDefault();
+            }
+        });
+
+        stage.addEventListener('touchstart', function (e) {
+            if (!e.touches || !e.touches.length) return;
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            touchActive = true;
+        }, { passive: true });
+
+        stage.addEventListener('touchend', function (e) {
+            if (!touchActive || !e.changedTouches || !e.changedTouches.length) return;
+            touchActive = false;
+
+            const diffX = e.changedTouches[0].clientX - startX;
+            const diffY = e.changedTouches[0].clientY - startY;
+
+            if (Math.abs(diffX) > 45 && Math.abs(diffX) > Math.abs(diffY) * 1.25) {
+                show(diffX < 0 ? current + 1 : current - 1);
+            }
+        }, { passive: true });
+
+        stage.addEventListener('touchcancel', function () {
+            touchActive = false;
+        }, { passive: true });
+
+        image.addEventListener('load', function () {
+            setBackdrop(image.currentSrc || image.src);
+            image.classList.remove('is-changing');
+        });
+
+        updateText();
+        setBackdrop(image.currentSrc || image.src);
+        preload(1);
+        preload(total - 1);
+    }
+
+    initCarousel();
 });
