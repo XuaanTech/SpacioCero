@@ -223,61 +223,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const loadMapBtn = document.getElementById('load-map-btn');
     const grContainer = document.getElementById('gr-widget-container');
 
-    function forzarCentradoGRWidget() {
-        const container = document.getElementById('gr-widget-container');
-        if (!container) return;
-        const widget = container.querySelector('.grwidget-embed');
-        if (!widget) return;
-        widget.style.display = 'flex';
-        widget.style.flexDirection = 'column';
-        widget.style.alignItems = 'center';
-        widget.style.justifyContent = 'center';
-        widget.style.width = '100%';
-        widget.style.maxWidth = '800px';
-        widget.style.margin = '0 auto';
-        widget.style.textAlign = 'center';
-        const allChildren = widget.querySelectorAll('*');
-        allChildren.forEach(function(el) {
-            el.style.marginLeft = 'auto';
-            el.style.marginRight = 'auto';
-            el.style.textAlign = 'center';
-            el.style.display = 'block';
-            el.style.float = 'none';
-            el.style.clear = 'both';
-        });
-        const lists = widget.querySelectorAll('ul, li');
-        lists.forEach(function(el) {
-            el.style.listStyle = 'none';
-            el.style.padding = '0';
-            el.style.margin = '0 auto';
-            el.style.textAlign = 'center';
-            el.style.display = 'flex';
-            el.style.flexDirection = 'column';
-            el.style.alignItems = 'center';
-        });
-    }
-
     function cargarGRWidget() {
         if (!grContainer) return;
         const key = grContainer.dataset.grwidgetKey;
         grContainer.classList.remove('third-party-placeholder');
         grContainer.innerHTML = `<div class="grwidget-embed" data-grwidget-key="${key}"></div>`;
+
         const script = document.createElement('script');
         script.src = 'https://grwidget.com/v1/grwidget.js';
         script.async = true;
         script.defer = true;
-        script.onload = function() {
-            setTimeout(forzarCentradoGRWidget, 500);
-        };
         document.body.appendChild(script);
-        const observer = new MutationObserver(function(mutations) {
-            const widget = grContainer.querySelector('.grwidget-embed');
-            if (widget) {
-                forzarCentradoGRWidget();
-                observer.disconnect();
-            }
-        });
-        observer.observe(grContainer, { childList: true, subtree: true });
     }
 
     function cargarGoogleMaps() {
@@ -372,18 +328,33 @@ document.addEventListener('DOMContentLoaded', function () {
     const modalAction = document.getElementById('modalAction');
 
     function abrirModal(clase) {
-        let nombreClase = clase.charAt(0).toUpperCase() + clase.slice(1);
         const nombres = {
             'hatha': 'Hatha Yoga',
             'vinyasa': 'Vinyasa Flow',
             'yin': 'Yin Yoga',
             'pilates': 'Pilates',
             'barre': 'Barre',
-            'tratamiento': 'Tratamiento'
+            'tratamiento': 'Tratamientos faciales y corporales'
         };
-        nombreClase = nombres[clase] || nombreClase;
-        modalTitle.textContent = `🧘 ${nombreClase}`;
-        modalText.textContent = `Información detallada de ${nombreClase} (próximamente). Puedes reservar directamente por WhatsApp.`;
+
+        const descripciones = {
+            'hatha': 'El Hatha Yoga es la base de todas las prácticas de yoga. Se centra en posturas (asana) y técnicas de respiración (pranayama) para alinear cuerpo y mente. Las posturas se mantienen varios segundos, trabajando la conciencia corporal, la flexibilidad y el equilibrio. Es una práctica suave y pausada, ideal para principiantes, pero también desafiante para quienes buscan profundizar en la alineación. Cada sesión incluye relajación final y meditación guiada. Beneficios: reduce el estrés, mejora la postura, aumenta la flexibilidad y fortalece el sistema nervioso.',
+            
+            'vinyasa': 'Vinyasa significa "movimiento sincronizado con la respiración". En esta clase dinámica, las posturas se enlazan en secuencias fluidas y continuas, creando un flujo constante que eleva el ritmo cardíaco y quema calorías. Cada transición se coordina con la inhalación y exhalación, lo que convierte la práctica en una danza consciente. Es perfecta para quienes buscan un reto físico, tonificar el cuerpo y liberar endorfinas. Nivel intermedio, pero adaptable a todos. Beneficios: mejora la resistencia cardiovascular, tonifica músculos, aumenta la agilidad y la concentración.',
+            
+            'yin': 'El Yin Yoga es una práctica pasiva y profunda. Las posturas se mantienen durante 3 a 5 minutos, trabajando sobre los tejidos conectivos (fascia, ligamentos, articulaciones) en lugar de los músculos. Se utilizan accesorios (bloques, mantas) para favorecer la relajación total y la entrega. Es ideal para contrarrestar el estrés, mejorar la movilidad articular y liberar tensiones acumuladas. No requiere fuerza ni experiencia previa. Beneficios: relajación profunda, aumento de la flexibilidad, mejora del sueño y equilibrio emocional.',
+            
+            'pilates': 'El método Pilates se enfoca en el fortalecimiento del "core" (zona abdominal, lumbar y glútea) a través de movimientos controlados y precisos. Se trabaja la alineación postural, la respiración y la estabilidad. Las sesiones incluyen ejercicios en esterilla con pequeños accesorios (bandas, pelotas) o en máquinas (reformer). Es excelente para rehabilitación, mejora de la postura y prevención de lesiones. Nivel principiante a avanzado. Beneficios: abdomen firme, espalda fuerte, mejor coordinación y conciencia corporal.',
+            
+            'barre': 'Barre fusiona la técnica de ballet, el pilates y el yoga en una clase de alta intensidad baja en impacto. Utilizando la barra de ballet, se realizan movimientos isométricos, pequeños pulsos y estiramientos que trabajan piernas, glúteos, brazos y abdomen. Es una práctica exigente pero divertida, que tonifica y esculpe el cuerpo sin agresiones articulares. Ideal para quienes buscan resultados visibles en poco tiempo. Beneficios: piernas y glúteos firmes, brazos definidos, mayor resistencia y flexibilidad.',
+            
+            'tratamiento': 'Nuestros tratamientos de bienestar están diseñados para ofrecerte un momento de desconexión y cuidado personal. Incluyen masajes relajantes, tratamientos faciales con productos naturales, exfoliaciones corporales y envolturas nutritivas. Cada sesión se adapta a tus necesidades, utilizando técnicas que alivian tensiones, mejoran la circulación y revitalizan la piel. Es el complemento perfecto para tu práctica de yoga o pilates. Beneficios: reducción del estrés, piel radiante, relajación muscular y bienestar integral.'
+        };
+
+        const nombreClase = nombres[clase] || clase.charAt(0).toUpperCase() + clase.slice(1);
+        modalTitle.textContent = `${nombreClase}`;
+        modalText.textContent = descripciones[clase] || 'Información detallada próximamente. Puedes reservar directamente por WhatsApp.';
+        
         const mensajeWhatsApp = encodeURIComponent(`Hola, me gustaría reservar ${nombreClase}`);
         modalAction.href = `https://wa.me/34661545051?text=${mensajeWhatsApp}`;
         modalAction.target = '_blank';

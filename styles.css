@@ -1181,7 +1181,7 @@ picture {
 }
 
 /* ============================================
-   OPINIONES
+   OPINIONES - MEJORADO
    ============================================ */
 #opiniones .container {
     display: flex !important;
@@ -1189,31 +1189,48 @@ picture {
     align-items: center !important;
 }
 
-.grwidget-embed {
-    width: 100% !important;
-    max-width: 800px !important;
+/* El placeholder que se muestra antes de aceptar cookies */
+.third-party-placeholder {
+    background: #f8faf9;
+    border: 2px dashed #d0d8d5;
+    border-radius: 20px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    margin: 1.5rem 0;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.third-party-placeholder .placeholder-text {
+    color: #6b7a7f;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.third-party-placeholder .btn {
+    margin-top: 0.5rem;
+}
+
+/* Mapa */
+#google-map-container iframe {
+    width: 100%;
+    height: 220px;
+    border: 0;
+    border-radius: 20px;
+}
+
+/* Eliminar bordes y fondos extra en los placeholders cuando no se usan */
+#google-map-container.third-party-placeholder,
+#gr-widget-container.third-party-placeholder {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
     margin: 0 auto !important;
-    display: block !important;
-    text-align: center !important;
-}
-
-.grwidget-embed * {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    float: none !important;
-    display: block !important;
-}
-
-.grwidget-embed .grw-rating,
-.grwidget-embed .grw-stars,
-.grwidget-embed .grw-review-text,
-.grwidget-embed .grw-review-author,
-.grwidget-embed .grw-review-date,
-.grwidget-embed .grw-review-content {
-    display: inline-block !important;
-    float: none !important;
-    text-align: center !important;
+    min-height: auto !important;
 }
 
 .opiniones-footer {
@@ -1912,69 +1929,17 @@ picture {
     border-radius: 20px;
 }
 
+/* GR Widget: dejar que el widget gestione su propio diseño y responsive */
 #gr-widget-container {
-    width: 100% !important;
-    max-width: 800px !important;
-    margin: 0 auto !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 #gr-widget-container .grwidget-embed {
-    width: 100% !important;
-    max-width: 800px !important;
-    margin: 0 auto !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-}
-
-#gr-widget-container *,
-#gr-widget-container .grwidget-embed * {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    text-align: center !important;
-    display: block !important;
-    float: none !important;
-    clear: both !important;
-}
-
-#gr-widget-container .grw-rating,
-#gr-widget-container .grw-stars,
-#gr-widget-container .grw-review-text,
-#gr-widget-container .grw-review-author,
-#gr-widget-container .grw-review-date,
-#gr-widget-container .grw-review-content,
-#gr-widget-container .grw-review-item,
-#gr-widget-container .grw-widget,
-#gr-widget-container .grw-row,
-#gr-widget-container .grw-col {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    float: none !important;
-    width: 100% !important;
-    max-width: 100% !important;
-}
-
-#gr-widget-container ul,
-#gr-widget-container li {
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 0 auto !important;
-    text-align: center !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 /* ============================================
@@ -2010,13 +1975,6 @@ picture {
         font-size: 0.9rem;
     }
 
-    #gr-widget-container {
-        max-width: 100% !important;
-        padding: 0 0.5rem !important;
-    }
-    #gr-widget-container .grwidget-embed {
-        max-width: 100% !important;
-    }
 }
 
 /* ============================================
